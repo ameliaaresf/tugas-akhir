@@ -39,6 +39,7 @@ Route::group([
             Route::resource('data-bansos', DataBansosController::class);
             Route::resource('laporan-data', LaporanDataController::class);
             Route::resource('surat-menyurat', SuratMenyuratController::class);
+            Route::resource('sku', SKUController::class);
     });
 });
 
