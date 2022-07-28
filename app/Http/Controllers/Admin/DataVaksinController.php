@@ -134,7 +134,7 @@ class DataVaksinController extends Controller
         // dd($vaksin);
         $vaksin->save();
 
-        return redirect('admin/data-vaksin')->with('status', 'Data Berhasil diinput!');
+        return redirect('admin/data-vaksin')->with('status', 'Data Berhasil diubah!');
     }
 
     /**

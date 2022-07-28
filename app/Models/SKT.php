@@ -5,10 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class SKU extends Model
+class SKT extends Model
 {
     use HasFactory;
-
-    protected $table = 'sku';
-    protected $primarykey = 'id';
 }

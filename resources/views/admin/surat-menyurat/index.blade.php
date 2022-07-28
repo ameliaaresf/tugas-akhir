@@ -1,90 +1,98 @@
 @extends('admin.app')
-@section('title', 'Surat Keterangan Usaha')
+@section('title', 'Dashboard')
 @section('content')
-        <section class="w-full">
-        <div class="container mx-auto py-6 px-4" x-data="datatables()" x-cloak>
-		<h1 class="text-3xl py-4 border-b mb-10 text-white">Surat Keterangan Usaha</h1>
+<section>
+            <div id="main" class="main-content flex-1 bg-gray-100 mt-12 md:mt-2 pb-24 md:pb-5">
 
-		<div x-show="selectedRows.length" class="bg-teal-200 fixed top-0 left-0 right-0 z-40 w-full shadow">
-			<div class="container mx-auto px-4 py-4">
-				<div class="flex md:items-center">
-					<div class="mr-4 flex-shrink-0">
-						<svg class="h-8 w-8 text-teal-600"  viewBox="0 0 20 20" fill="currentColor">  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
-					</div>
-					<div x-html="selectedRows.length + ' rows are selected'" class="text-teal-800 text-lg"></div>
-				</div>
-			</div>
-		</div>
-
-		<div class="mb-4 flex justify-between items-center">
-			<div class="flex-1 pr-4">
-				<div class="relative md:w-full">
-					<input type="search"
-						class="w-full pl-10 pr-4 py-2 rounded-lg shadow focus:outline-none focus:shadow-outline text-gray-600 font-medium"
-						placeholder="Search...">
-					<div class="absolute top-0 left-0 inline-flex items-center p-2">
-						<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-400" viewBox="0 0 24 24"
-							stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
-							stroke-linejoin="round">
-							<rect x="0" y="0" width="24" height="24" stroke="none"></rect>
-							<circle cx="10" cy="10" r="7" />
-							<line x1="21" y1="21" x2="15" y2="15" />
-						</svg>
-					</div>
-				</div>
-			</div>
-			<div>
-				<div class="">
-                    <div class="rounded bg-green-500 hover:bg-green-700 py-2 px-4 text-white mr-5">
-                        <a href="{{ route('admin.surat-menyurat.create')}}">Tambah</a>
+                <div class="bg-gray-800 pt-3">
+                    <div class="rounded-tl-3xl bg-gradient-to-r from-blue-900 to-gray-800 p-4 shadow text-2xl text-white">
+                        <h1 class="font-bold pl-2">SURAT MENYURAT DESA TUGU</h1>
                     </div>
-					
-				
-				</div>
-			</div>
-		</div>
+                    
+                </div>
 
-		<div class="overflow-x-auto bg-white rounded-lg shadow overflow-y-auto relative"
-			style="height: 405px;">
-			<table class="border-collapse border border-slate-400 table-auto w-full whitespace-no-wrap bg-white table-striped relative">
-				<thead>
-					<tr class="text-left">
-						<!-- <th class="py-2 px-3 sticky top-0 border-b border-gray-200 bg-gray-100">
-							<label
-								class="text-teal-500 inline-flex justify-between items-center hover:bg-gray-200 px-2 py-2 rounded-lg cursor-pointer">
-								<input type="checkbox" class="form-checkbox focus:outline-none focus:shadow-outline" @click="selectAllCheckbox($event);">
-							</label>
-						</th>  -->
-						
-							
-                            
-                            <th class="border border-slate-300 bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs text-center"
-								>Nama</th>
-                            <th class="border border-slate-300 bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs text-center"
-								>Alamat</th>
-                            <th class="border border-slate-300 bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs text-center"
-								>Pekerjaan</th>
-                            <th class="border border-slate-300 bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs text-center"
-								>Jenis Surat</th>
-                            <th class="border border-slate-300 bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs text-center"
-								>Nama Usaha</th>
-                            <th class="border border-slate-300 bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs text-center"
-								>Mulai Usaha</th>
-                            <th class="border border-slate-300 bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs text-center"
-								>Alamat Usaha</th>
-							<th class="border-collapse border border-slate-400 bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs text-center"
-								>Aksi</th>
-						
-					</tr>
-				</thead>
-				<tbody>
+                <div class="flex flex-wrap">
+                    <div class="w-full md:w-1/2 xl:w-1/3 p-6">
+                        <a href="{{ route('admin.data-penduduk.index')}}">
+                        <!--Metric Card-->
+                        <div class="bg-gradient-to-b from-green-200 to-green-100 border-b-4 border-green-600 rounded-lg shadow-xl p-5">
+                            <div class="flex flex-row items-center">
+                                <div class="flex-shrink pr-4">
+                                    <div class="rounded-full p-5 bg-green-600"><i class="fas fa-users fa-2x fa-inverse"></i></div>
+                                </div>
+                                <div class="flex-1 text-right md:text-center">
+                                    <h2 class="font-bold uppercase text-gray-600">Surat Keterangan Domisili</h2>
+                                   <p class="font-bold text-3xl"> <span class="text-green-500"></span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/Metric Card-->
+                        </a>
+                    </div>
+                    <div class="w-full md:w-1/2 xl:w-1/3 p-6">
+                        <a href="{{ route('admin.data-kelahiran.index')}}">
+                        <!--Metric Card-->
+                        <div class="bg-gradient-to-b from-pink-200 to-pink-100 border-b-4 border-pink-500 rounded-lg shadow-xl p-5">
+                            <div class="flex flex-row items-center">
+                                <div class="flex-shrink pr-4">
+                                    <div class="rounded-full p-5 bg-pink-600"><i class="fas fa-user-plus fa-2x fa-inverse"></i></div>
+                                </div>
+                                <div class="flex-1 text-right md:text-center">
+                                    <h2 class="font-bold uppercase text-gray-600">Surat Keterangan Status</h2>
+                                    <p class="font-bold text-3xl"> <span class="text-pink-500"></span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/Metric Card-->
+                        </a>
+                    </div>
+                    
+                    
+                    
+                        
+                        
+                    <div class="w-full md:w-1/2 xl:w-1/3 p-6">
+                        <a href="{{ route('admin.surat-menyurat.index')}}">
+                        <!--Metric Card-->
+                        <div class="bg-gradient-to-b from-green-200 to-green-100 border-b-4 border-green-600 rounded-lg shadow-xl p-5">
+                            <div class="flex flex-row items-center">
+                                <div class="flex-shrink pr-4">
+                                    <div class="rounded-full p-5 bg-green-600"><i class="fas fa-print fa-2x fa-inverse"></i></div>
+                                </div>
+                                <div class="flex-1 text-right md:text-center">
+                                    <h2 class="font-bold uppercase text-gray-600">Surat Keterangan Tanah</h2>
+                                   <!-- <p class="font-bold text-3xl">5556 <span class="text-green-500"></span></p> -->
+                                </div>
+                            </div>
+                        </div>
+                        <!--/Metric Card-->
+                        </a>
+                    </div>
+                    <div class="w-full md:w-1/2 xl:w-1/3 p-6">
+                        <a href="{{ route('admin.sku.index')}}">
+                        <!--Metric Card-->
+                        <div class="bg-gradient-to-b from-blue-200 to-blue-100 border-b-4 border-blue-500 rounded-lg shadow-xl p-5">
+                            <div class="flex flex-row items-center">
+                                <div class="flex-shrink pr-4">
+                                    <div class="rounded-full p-5 bg-blue-600"><i class="fas fa-calendar-check fa-2x fa-inverse"></i></div>
+                                </div>
+                                <div class="flex-1 text-right md:text-center">
+                                    <h2 class="font-bold uppercase text-gray-600">Surat Keterangan Usaha</h2>
+                                    <p class="font-bold text-3xl"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/Metric Card-->
+                        </a>
+                    </div>
+                    
+                </div>
 
 
-					
-					
-				</tbody>
-			</table>
-		</div>
-	</div>
+
+
+
+                </div>
+            </div>
         </section>
-    @endsection
+        @endsection

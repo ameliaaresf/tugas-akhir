@@ -40,6 +40,10 @@ Route::group([
             Route::resource('laporan-data', LaporanDataController::class);
             Route::resource('surat-menyurat', SuratMenyuratController::class);
             Route::resource('sku', SKUController::class);
+            Route::resource('skd', SKDController::class);
+            Route::resource('sks', SKSController::class);
+            Route::resource('skt', SKTController::class);
+
     });
 });
 
@@ -58,6 +62,8 @@ Route::get('pendatang', 'KepalaDesa\BerandaController@pendatang')->name('pendata
 Route::get('perpindahan', 'KepalaDesa\BerandaController@perpindahan')->name('perpindahan');
 Route::get('pekerja', 'KepalaDesa\BerandaController@pekerja')->name('pekerja');
 Route::get('vaksin', 'KepalaDesa\BerandaController@vaksin')->name('vaksin');
+// Route::get('admin/sku/cetak/{$id}',[SKUController::class,'cetak'])->name('admin.sku.cetak');
+
 
 
 

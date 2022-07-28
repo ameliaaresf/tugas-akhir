@@ -35,9 +35,9 @@
 			</div>
 			<div>
 				<div class="">
-                    <div class="rounded bg-green-500 hover:bg-green-700 py-2 px-4 text-white mr-5">
+                    <!-- <div class="rounded bg-green-500 hover:bg-green-700 py-2 px-4 text-white mr-5">
                         <a href="{{ route('admin.data-penduduk.create')}}">Tambah</a>
-                    </div>
+                    </div> -->
 					
 				
 				</div>
@@ -57,28 +57,20 @@
 						</th>  -->
 						
 							
-                            <th class="border border-slate-300 bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs"
+						<th class="border border-slate-300 bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs"
+								>No KK</th>
+							<th class="border border-slate-300 bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs"
 								>NIK</th>
                             <th class="border border-slate-300 bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs"
 								>Nama</th>
                             <th class="border border-slate-300 bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs"
-								>Tempat Lahir</th>
-                            <th class="border border-slate-300 bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs"
 								>Tanggal Lahir</th>
                             <th class="border border-slate-300 bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs"
-								>Jenis Kelamin</th>
+								>Blok</th>
                             <th class="border border-slate-300 bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs"
-								>Alamat</th>
+								>RT</th>
                             <th class="border border-slate-300 bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs"
-								>Agama</th>
-                            <th class="border border-slate-300 bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs"
-								>Status Perkawinan</th>
-                            <th class="border border-slate-300 bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs"
-								>Pekerjaan</th>
-                            <th class="border border-slate-300 bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs"
-								>Kewarganegaraan</th>
-							<th class="border-collapse border border-slate-400 bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs text-center"
-								>Aksi</th>
+								>RW</th>
 						
 					</tr>
 				</thead>
@@ -86,6 +78,8 @@
 
 						@foreach ($datapenduduk as $data)
 						<tr>
+						<td class="border border-slate-300 border-t border-gray-200 userId text-center">
+                            {{$data->no_kk}}
 							<td class="border border-slate-300 border-t border-gray-200 userId text-center">
                             {{$data->nik}}
 							</td>
@@ -93,28 +87,16 @@
 							{{$data->nama}}
 							</td>
 							<td class="border border-slate-300 border-t border-gray-200 userId text-center">
-                            {{$data->tempat_lahir}}
-							</td>
-							<td class="border border-slate-300 border-t border-gray-200 userId text-center">
 							{{ date("d F Y", strtotime($data->tgl_lahir))}}
 							</td>
 							<td class="border border-slate-300 border-t border-gray-200 userId text-center">
-							{{$data->jk}}
+							{{$data->blok}}
 							</td>
 							<td class="border border-slate-300 border-t border-gray-200 userId text-center">
-							{{$data->alamat}}
+							{{$data->rt}}
 							</td>
                             <td class="border border-slate-300 border-t border-gray-200 userId text-center">
-							{{$data->agama}}
-							</td>
-                            <td class="border border-slate-300 border-t border-gray-200 userId text-center">
-							{{$data->status}}
-							</td>
-                            <td class="border border-slate-300 border-t border-gray-200 userId text-center">
-							{{$data->pekerjaan}}
-							</td>
-                            <td class="border border-slate-300 border-t border-gray-200 userId text-center">
-							{{$data->kw}}
+							{{$data->rw}}
 							</td>
 							<td class="border border-slate-300 border-t border-gray-200 userId text-center">
 							<a href="{{url('admin/data-penduduk')}}/{{$data->id}}/{{'edit'}}" class='btn btn-success btn-sm'><i class='fas fa-pencil-alt'></i></a>

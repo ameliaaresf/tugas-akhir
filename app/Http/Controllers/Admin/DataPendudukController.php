@@ -39,30 +39,25 @@ class DataPendudukController extends Controller
     public function store(Request $request)
     {
         $rules = [
+            'no_kk' => 'required|digits:16',
             'nik' => 'required|digits:16',
             'nama' => 'required',
-            'tempat_lahir' => 'required',
             'tgl_lahir' => 'required',
-            'jk' => 'required',
-            'alamat' => 'required',
-            'agama' => 'required',
-            'status' => 'required',
-            'pekerjaan' => 'required',
-            'kw' => 'required'
+            'blok' => 'required',
+            'rw' => 'required',
+            'rt' => 'required'
         ];
 
         $messages = [
+            'no_kk.required' => 'No KK harus diisi!',
+            'no_kk.digits' => 'No KK harus 16 digit!',
             'nik.required' => 'NIK harus diisi!',
             'nik.digits' => 'NIK harus 16 digit!',
             'nama.required' => 'Nama harus diisi!',
-            'tempat_lahir.required' => 'Tempat lahir harus diisi!',
             'tgl_lahir.required' => 'Tanggal lahir harus diisi!',
-            'jk.required' => 'Jenis kelamin harus diisi!',
-            'alamat.required' => 'Alamat harus diisi!',
-            'agama.required' => 'Agama harus diisi!',
-            'status.required' => 'Status perkawinan harus diisi!',
-            'pekerjaan.required' => 'Pekerjaan harus diisi!',
-            'kw.required' => 'Kewarganegaraan harus diisi!'
+            'blok.required' => 'Blok harus diisi!',
+            'rw.required' => 'RW harus diisi!',
+            'rt.required' => 'RT perkawinan harus diisi!'
         ];
 
         $this->validate($request, $rules, $messages);
@@ -70,16 +65,13 @@ class DataPendudukController extends Controller
         $date =  date('y-m-d', strtotime($request->tgl_lahir));
 
         $penduduk = new DataPenduduk;
+        $penduduk->no_kk = $request->no_kk;
         $penduduk->nik = $request->nik;
         $penduduk->nama = $request->nama;
-        $penduduk->tempat_lahir = $request->tempat_lahir;
         $penduduk->tgl_lahir = $date;
-        $penduduk->jk = $request->jk;
-        $penduduk->alamat = $request->alamat;
-        $penduduk->agama = $request->agama;
-        $penduduk->status = $request->status;
-        $penduduk->pekerjaan = $request->pekerjaan;
-        $penduduk->kw = $request->kw;
+        $penduduk->blok = $request->blok;
+        $penduduk->rw = $request->rw;
+        $penduduk->rt = $request->rt;
         // dd($penduduk);
         $penduduk->save();
 
@@ -120,30 +112,25 @@ class DataPendudukController extends Controller
     public function update(Request $request, $id)
     {
         $rules = [
+            'no_kk' => 'required|digits:16',
             'nik' => 'required|digits:16',
             'nama' => 'required',
-            'tempat_lahir' => 'required',
             'tgl_lahir' => 'required',
-            'jk' => 'required',
-            'alamat' => 'required',
-            'agama' => 'required',
-            'status' => 'required',
-            'pekerjaan' => 'required',
-            'kw' => 'required'
+            'blok' => 'required',
+            'rw' => 'required',
+            'rt' => 'required'
         ];
 
         $messages = [
+            'no_kk.required' => 'No KK harus diisi!',
+            'no_kk.digits' => 'No KK harus 16 digit!',
             'nik.required' => 'NIK harus diisi!',
             'nik.digits' => 'NIK harus 16 digit!',
             'nama.required' => 'Nama harus diisi!',
-            'tempat_lahir.required' => 'Tempat lahir harus diisi!',
             'tgl_lahir.required' => 'Tanggal lahir harus diisi!',
-            'jk.required' => 'Jenis kelamin harus diisi!',
-            'alamat.required' => 'Alamat harus diisi!',
-            'agama.required' => 'Agama harus diisi!',
-            'status.required' => 'Status perkawinan harus diisi!',
-            'pekerjaan.required' => 'Pekerjaan harus diisi!',
-            'kw.required' => 'Kewarganegaraan harus diisi!'
+            'blok.required' => 'BLOK harus diisi!',
+            'rw.required' => 'RW harus diisi!',
+            'rt.required' => 'RT harus diisi!'
         ];
 
         $this->validate($request, $rules, $messages);
@@ -151,16 +138,13 @@ class DataPendudukController extends Controller
         $date =  date('y-m-d', strtotime($request->tgl_lahir));
 
         $penduduk = DataPenduduk::find($id);
+        $penduduk->no_kk = $request->no_kk;
         $penduduk->nik = $request->nik;
         $penduduk->nama = $request->nama;
-        $penduduk->tempat_lahir = $request->tempat_lahir;
         $penduduk->tgl_lahir = $date;
-        $penduduk->jk = $request->jk;
-        $penduduk->alamat = $request->alamat;
-        $penduduk->agama = $request->agama;
-        $penduduk->status = $request->status;
-        $penduduk->pekerjaan = $request->pekerjaan;
-        $penduduk->kw = $request->kw;
+        $penduduk->blok = $request->blok;
+        $penduduk->rw = $request->rw;
+        $penduduk->rt = $request->rt;
         // dd($penduduk);
         $penduduk->save();
 

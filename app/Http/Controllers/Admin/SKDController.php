@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\SKU;
+use App\Models\SKD;
 use \PDF;
 
-class SKUController extends Controller
+class SKDController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +16,9 @@ class SKUController extends Controller
      */
     public function index()
     {
-        $sku = SKU::all();
+        $skd = SKD::all();
 
-        return view ('admin.sku.index')->with('sku', $sku);
+        return view ('admin.skd.index')->with('skd', $skd);
     }
 
     /**
@@ -28,7 +28,7 @@ class SKUController extends Controller
      */
     public function create()
     {
-        return view ('admin.sku.create');
+        return view ('admin.skd.create');
     }
 
     /**
@@ -48,7 +48,8 @@ class SKUController extends Controller
             'jk' => 'required',
             'pekerjaan' => 'required',
             'alamat' => 'required',
-            'nama_usaha' => 'required',
+            'kw' => 'required',
+            'agama' => 'required',
             'tgl_buat' => 'required',
             'ttd' => 'required',
             'keterangan' => 'required',
@@ -63,7 +64,8 @@ class SKUController extends Controller
             'jk.required' => 'Jenis Kelamin harus diisi!',
             'pekerjaan.required' => 'Pekerjaan harus diisi!',
             'alamat.required' => 'Alamat harus diisi!',
-            'nama_usaha.required' => 'Nama Usaha harus diisi!',
+            'kw.required' => 'Kewarganegaraan harus diisi!',
+            'agama.required' => 'Agama harus diisi!',
             'tgl_buat.required' => 'Tanggal Pembuatan harus diisi!',
             'ttd.required' => 'Yang Bertandatangan harus diisi!',
             'keterangan.required' => 'Keterangan harus diisi!',
@@ -74,24 +76,25 @@ class SKUController extends Controller
         $date1 =  date('y-m-d', strtotime($request->tgl_lahir));
         $date2 =  date('y-m-d', strtotime($request->tgl_buat));
 
-        $sku = new Sku;
-        $sku->no_regis = $request->no_regis;
-        $sku->nama = $request->nama;
-        $sku->nik = $request->nik;
-        $sku->tempat_lahir = $request->tempat_lahir;
-        $sku->tgl_lahir = $date1;
-        $sku->jk = $request->jk;
-        $sku->pekerjaan = $request->pekerjaan;
-        $sku->alamat = $request->alamat;
-        $sku->nama_usaha = $request->nama_usaha;
-        $sku->tgl_buat = $date2;
-        $sku->ttd = $request->ttd;
-        $sku->keterangan = $request->keterangan;
-        $sku->save();
+        $skd = new Skd;
+        $skd->no_regis = $request->no_regis;
+        $skd->nama = $request->nama;
+        $skd->nik = $request->nik;
+        $skd->tempat_lahir = $request->tempat_lahir;
+        $skd->tgl_lahir = $date1;
+        $skd->jk = $request->jk;
+        $skd->pekerjaan = $request->pekerjaan;
+        $skd->alamat = $request->alamat;
+        $skd->kw = $request->kw;
+        $skd->agama = $request->agama;
+        $skd->tgl_buat = $date2;
+        $skd->ttd = $request->ttd;
+        $skd->keterangan = $request->keterangan;
+        $skd->save();
         
-        // dd($sku);
+        // dd($skd);
 
-        return redirect('admin/sku')->with('status', 'Data Berhasil diinput!');
+        return redirect('admin/skd')->with('status', 'Data Berhasil diinput!');
     }
 
     /**
@@ -100,26 +103,15 @@ class SKUController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    // public function show($id, SKU $sku)
-    // {
-    //     $pdf = PDF::loadview('admin.surat-menyurat.sku', compact(sku));
-
-    //     $pdf->setPaper('a4', 'potrait');
-    //     return $pdf->stream();
-    // }
-
     public function show($id)
     {
-   
-        $sku = Sku::findOrFail($id);
+        $skd = Skd::findOrFail($id);
 
-        return view ('admin.surat-menyurat.sku')->with('sku', $sku);
+        return view ('admin.surat-menyurat.skd$skd')->with('skd', $skd);
     }
-
-
     public function tampil()
     {
-        return view ('admin.sku.create');
+        return view ('admin.skd.create');
     }
     /**
      * Show the form for editing the specified resource.
@@ -129,9 +121,9 @@ class SKUController extends Controller
      */
     public function edit($id)
     {
-        $sku = Sku::findOrFail($id);
+        $skd = Skd::findOrFail($id);
 
-        return view ('admin.sku.edit')->with('sku', $sku);
+        return view ('admin.skd.edit')->with('skd', $skd);
     }
 
     /**
@@ -152,7 +144,8 @@ class SKUController extends Controller
             'jk' => 'required',
             'pekerjaan' => 'required',
             'alamat' => 'required',
-            'nama_usaha' => 'required',
+            'kw' => 'required',
+            'agama' => 'required',
             'tgl_buat' => 'required',
             'ttd' => 'required',
             'keterangan' => 'required',
@@ -165,9 +158,10 @@ class SKUController extends Controller
             'tempat_lahir.required' => 'Tempat Lahir harus diisi!',
             'tgl_lahir.required' => 'Tanggal Lahir harus diisi!',
             'jk.required' => 'Jenis Kelamin harus diisi!',
-            'pekerjaan.required' => 'Pekerjaan Usaha harus diisi!',
+            'pekerjaan.required' => 'Pekerjaan harus diisi!',
             'alamat.required' => 'Alamat harus diisi!',
-            'nama_usaha.required' => 'Nama Usaha harus diisi!',
+            'kw.required' => 'Kewarganegaraan harus diisi!',
+            'agama.required' => 'Agama harus diisi!',
             'tgl_buat.required' => 'Tanggal Pembuatan harus diisi!',
             'ttd.required' => 'Yang Bertandatangan harus diisi!',
             'keterangan.required' => 'Keterangan harus diisi!',
@@ -178,23 +172,25 @@ class SKUController extends Controller
         $date1 =  date('y-m-d', strtotime($request->tgl_lahir));
         $date2 =  date('y-m-d', strtotime($request->tgl_buat));
 
-        $sku = Sku::find($id);
-        $sku->no_regis = $request->no_regis;
-        $sku->nama = $request->nama;
-        $sku->nik = $request->nik;
-        $sku->tempat_lahir = $request->tempat_lahir;
-        $sku->tgl_lahir = $date1;
-        $sku->jk = $request->jk;
-        $sku->pekerjaan = $request->pekerjaan;
-        $sku->alamat = $request->alamat;
-        $sku->nama_usaha = $request->nama_usaha;
-        $sku->tgl_buat = $date2;
-        $sku->ttd = $request->ttd;
-        $sku->keterangan = $request->keterangan;
-        // dd($sku);
-        $sku->save();
+        $skd = Skd::find($id);
+        $skd->no_regis = $request->no_regis;
+        $skd->nama = $request->nama;
+        $skd->nik = $request->nik;
+        $skd->tempat_lahir = $request->tempat_lahir;
+        $skd->tgl_lahir = $date1;
+        $skd->jk = $request->jk;
+        $skd->pekerjaan = $request->pekerjaan;
+        $skd->alamat = $request->alamat;
+        $skd->kw = $request->kw;
+        $skd->agama = $request->agama;
+        $skd->tgl_buat = $date2;
+        $skd->ttd = $request->ttd;
+        $skd->keterangan = $request->keterangan;
+        $skd->save();
+        
+        // dd($skd);
 
-        return redirect('admin/sku')->with('status', 'Data Berhasil diubah!');
+        return redirect('admin/skd')->with('status', 'Data Berhasil diubah!');
     }
 
     /**
@@ -205,7 +201,7 @@ class SKUController extends Controller
      */
     public function destroy($id)
     {
-        Sku::find($id)->delete();
+        Skd::find($id)->delete();
         return back()->with('status','Data dihapus!');
     }
 }

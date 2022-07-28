@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDataPenduduksTable extends Migration
+class CreateSksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,8 @@ class CreateDataPenduduksTable extends Migration
      */
     public function up()
     {
-        Schema::create('data_penduduks', function (Blueprint $table) {
+        Schema::create('sks', function (Blueprint $table) {
             $table->id();
-            $table->string('no_kk');
-            $table->string('nik');
-            $table->string('nama');
-            $table->date('tgl_lahir');
-            $table->string('blok')->nullable();
-            $table->text('rw');
-            $table->string('rt');
             $table->timestamps();
         });
     }
@@ -33,6 +26,6 @@ class CreateDataPenduduksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('data_penduduks');
+        Schema::dropIfExists('sks');
     }
 }
