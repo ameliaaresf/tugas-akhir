@@ -127,27 +127,27 @@
         </div>
         <div class="w-full px-3 mb-6 md:mb-0 my-4">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-            Jenis Kelamin
+            Kewarganegaraan
           </label>
-  <div class="flex items-center mr-4 mb-4">
-    <input id="laki-laki" type="radio" name="jk" class="hidden {{ $errors ->has('jk') ? 'is-invalid' : ''}}" value = "Laki-laki" checked />
-    <label for="laki-laki" class="flex items-center cursor-pointer">
+          <div class="flex items-center mr-4 mb-4">
+    <input id="wni" type="radio" name="kw" class="hidden {{ $errors ->has('kw') ? 'is-invalid' : ''}}" value = "WNI" checked />
+    <label for="wni" class="flex items-center cursor-pointer">
      <span class="w-4 h-4 inline-block mr-1 rounded-full border border-grey"></span>
-     Laki-laki</label>
+     WNI</label>
    </div>
 
    <div class="flex items-center mr-4 mb-4">
-    <input id="perempuan" type="radio" name="jk" class="hidden {{ $errors ->has('jk') ? 'is-invalid' : ''}}" value = "Perempuan" />
-    <label for="perempuan" class="flex items-center cursor-pointer">
+    <input id="wna" type="radio" name="kw" class="hidden {{ $errors ->has('kw') ? 'is-invalid' : ''}}" value = "WNA" checked />
+    <label for="wna" class="flex items-center cursor-pointer">
      <span class="w-4 h-4 inline-block mr-1 rounded-full border border-grey"></span>
-     Perempuan</label>
-     @if($errors->has('jk'))
+     WNA</label>
+     @if($errors->has('kw'))
           <div class="text-red-600 italic "> 
-          {{$errors->first('jk')}}
+          {{$errors->first('kw')}}
           </div>
           @endif
-   </div>
-</div>
+          </div>
+          </div>
 <div class="w-full px-3 mb-6 md:mb-0 my-4">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
             Agama

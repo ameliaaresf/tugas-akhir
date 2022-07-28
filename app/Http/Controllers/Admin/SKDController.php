@@ -107,7 +107,7 @@ class SKDController extends Controller
     {
         $skd = Skd::findOrFail($id);
 
-        return view ('admin.surat-menyurat.skd$skd')->with('skd', $skd);
+        return view ('admin.surat-menyurat.skd')->with('skd', $skd);
     }
     public function tampil()
     {
