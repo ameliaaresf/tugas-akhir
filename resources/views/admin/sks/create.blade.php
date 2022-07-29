@@ -1,13 +1,13 @@
 @extends('admin.app')
-@section('title', 'Surat Keterangan Domisili')
+@section('title', 'Surat Keterangan Status')
 @section('content')
 
 <div class = "bg-gray-100 w-full mx-4 rounded-lg">
     <div class = "mx-4 my-4 text-center font-bold text-lg">
-        <p>Form Surat Keterangan Domisili</p>
+        <p>Form Surat Keterangan Status</p>
     </div>
 
-    <form class="w-full mt-10 px-4 rounded-lg" action="{{route('admin.skd.store')}}" method = "post">
+    <form class="w-full mt-10 px-4 rounded-lg" action="{{route('admin.sks.store')}}" method = "post">
         @csrf
         <div class="w-full px-3 mb-6 md:mb-0 my-4">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
@@ -127,30 +127,7 @@
         </div>
         <div class="w-full px-3 mb-6 md:mb-0 my-4">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-            Kewarganegaraan
-          </label>
-          <div class="flex items-center mr-4 mb-4">
-    <input id="wni" type="radio" name="kw" class="hidden {{ $errors ->has('kw') ? 'is-invalid' : ''}}" value = "WNI" checked />
-    <label for="wni" class="flex items-center cursor-pointer">
-     <span class="w-4 h-4 inline-block mr-1 rounded-full border border-grey"></span>
-     WNI</label>
-   </div>
-
-   <div class="flex items-center mr-4 mb-4">
-    <input id="wna" type="radio" name="kw" class="hidden {{ $errors ->has('kw') ? 'is-invalid' : ''}}" value = "WNA" checked />
-    <label for="wna" class="flex items-center cursor-pointer">
-     <span class="w-4 h-4 inline-block mr-1 rounded-full border border-grey"></span>
-     WNA</label>
-     @if($errors->has('kw'))
-          <div class="text-red-600 italic "> 
-          {{$errors->first('kw')}}
-          </div>
-          @endif
-          </div>
-          </div>
-<div class="w-full px-3 mb-6 md:mb-0 my-4">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-            Agama
+            Status
           </label>
           <div class="flex ">
   <div class="mb-3 xl:w-96 relative">
@@ -168,18 +145,16 @@
       transition
       ease-in-out
       m-0
-      focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none {{ $errors ->has('agama') ? 'is-invalid' : ''}}" id = "agama" name = "agama" aria-label="Default select example">
-        <option selected>Pilih Agama</option>
-        <option value="Islam">Islam</option>
-        <option value="Katolik">Katolik</option>
-        <option value="Protestan">Protestan</option>
-        <option value="Hindu">Hindu</option>
-        <option value="Budha">Budha</option>
-        <option value="Konghuchu">Konghuchu</option>
+      focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none {{ $errors ->has('status') ? 'is-invalid' : ''}}" id = "status" name = "status" aria-label="Default select example">
+        <option selected>Pilih Status</option>
+        <option value="Cerai Hidup / Duda">Cerai Hidup / Duda</option>
+        <option value="Cerai Hidup / Janda">Cerai Hidup / Janda</option>
+        <option value="Cerai Mati / Duda">Cerai Mati / Duda</option>
+        <option value="Cerai Mati / Janda">Cerai Mati / Janda</option>
     </select>
-    @if($errors->has('agama'))
+    @if($errors->has('status'))
           <div class="text-red-600 italic "> 
-          {{$errors->first('agama')}}
+          {{$errors->first('status')}}
           </div>
           @endif
   </div>
@@ -192,7 +167,7 @@
                 <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
                     <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
                 </div>
-                <input id="tgl_buat" datepicker="" datepicker-format="yyyy/mm/dd" type="text" name="tgl_buat"  class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 {{ $errors ->has('tgl_buat') ? 'is-invalid' : ''}} " placeholder="Pilih Tanggal">
+                <input id="tgl_buat" datepicker="" datepicker-format="dd/mm/yyyy" type="text" name="tgl_buat"  class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 {{ $errors ->has('tgl_buat') ? 'is-invalid' : ''}} " placeholder="Pilih Tanggal">
                 @if($errors->has('tgl_buat'))
           <div class="text-red-600 italic "> 
           {{$errors->first('tgl_buat')}}
@@ -238,14 +213,15 @@
             Keterangan
           </label>
   <div class="flex items-center mr-4 mb-4">
-    <input id="Sudah Ditandatangani" type="radio" name="keterangan" class="hidden {{ $errors ->has('keterangan') ? 'is-invalid' : ''}}" value = "Sudah Ditandatangani" checked />
-    <label for="Sudah Ditandatangani" class="flex items-center cursor-pointer">
+    <input id="sudah-ditandatangani" type="radio" name="keterangan" class="hidden {{ $errors ->has('keterangan') ? 'is-invalid' : ''}}" value = "Sudah Ditandatangani" checked />
+    <label for="sudah-ditandatangani" class="flex items-center cursor-pointer">
      <span class="w-4 h-4 inline-block mr-1 rounded-full border border-grey"></span>
      Sudah Ditandatangani</label>
    </div>
+
    <div class="flex items-center mr-4 mb-4">
-    <input id="Belum Ditandatangani" type="radio" name="keterangan" class="hidden {{ $errors ->has('keterangan') ? 'is-invalid' : ''}}" value = "Belum Ditandatangani" />
-    <label for="Belum Ditandatangani" class="flex items-center cursor-pointer">
+    <input id="belum-ditandatangani" type="radio" name="keterangan" class="hidden {{ $errors ->has('keterangan') ? 'is-invalid' : ''}}" value = "Belum Ditandatangani" />
+    <label for="belum-ditandatangani" class="flex items-center cursor-pointer">
      <span class="w-4 h-4 inline-block mr-1 rounded-full border border-grey"></span>
      Belum Ditandatangani</label>
      @if($errors->has('keterangan'))
@@ -254,6 +230,9 @@
           </div>
           @endif
    </div>
+</div>
+        
+        
         <div class="flex w-full h-full justify-center content-center items-center">
         <button class="rounded bg-blue-500 hover:bg-blue-700 py-2 px-4 text-white" type="submit"> SIMPAN</button>
         </div>

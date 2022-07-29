@@ -1,9 +1,9 @@
 @extends('admin.app')
-@section('title', 'Surat Keterangan Domisili')
+@section('title', 'Surat Keterangan Status')
 @section('content')
         <section class="w-full">
         <div class="container mx-auto py-6 px-4" x-data="datatables()" x-cloak>
-		<h1 class="text-3xl py-4 border-b mb-10 text-white">Surat Keterangan Domisili</h1>
+		<h1 class="text-3xl py-4 border-b mb-10 text-white">Surat Keterangan Status</h1>
 
 		<div x-show="selectedRows.length" class="bg-teal-200 fixed top-0 left-0 right-0 z-40 w-full shadow">
 			<div class="container mx-auto px-4 py-4">
@@ -36,7 +36,7 @@
 			<div>
 				<div class="">
                     <div class="rounded bg-green-500 hover:bg-green-700 py-2 px-4 text-white mr-5">
-                        <a href="{{ route('admin.skd.create')}}">Tambah</a>
+                        <a href="{{ route('admin.sks.create')}}">Tambah</a>
                     </div>
 					
 				
@@ -75,9 +75,7 @@
                             <th class="border border-slate-300 bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs text-center"
 								>Alamat</th>
                             <th class="border border-slate-300 bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs text-center"
-								>Kewarganegaraan</th>
-                            <th class="border border-slate-300 bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs text-center"
-								>Agama</th>
+								>Status</th>
 							<th class="border border-slate-300 bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs text-center"
 								>Tanggal Pembuatan</th>
 							<th class="border border-slate-300 bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs text-center"
@@ -91,7 +89,7 @@
 				</thead>
 				<tbody>
 				
-					@foreach ($skd as $item)
+					@foreach ($sks as $item)
 						<tr>
 							<td class="border border-slate-300 border-t border-gray-200 userId text-center">
                             	{{$item->no_regis}}
@@ -118,10 +116,7 @@
 								{{$item->alamat}}
 							</td>
 							<td class="border border-slate-300 border-t border-gray-200 userId text-center">
-								{{$item->kw}}
-							</td>
-                            <td class="border border-slate-300 border-t border-gray-200 userId text-center">
-								{{$item->agama}}
+								{{$item->status}}
 							</td>
 							<td class="border border-slate-300 border-t border-gray-200 userId text-center">
 								{{ date("d F Y", strtotime($item->tgl_buat))}}
@@ -133,15 +128,15 @@
 								{{$item->keterangan}}
 							</td>
 							<td class="border border-slate-300 border-t border-gray-200 userId text-center">
-							<a href="{{url('admin/skd')}}/{{$item->id}}/{{'edit'}}" class='btn btn-success btn-sm'><i class='fas fa-pencil-alt'></i></a>
-							<form action="{{url('admin/skd')}}/{{$item->id}}" method = "post">
+							<a href="{{url('admin/sks')}}/{{$item->id}}/{{'edit'}}" class='btn btn-success btn-sm'><i class='fas fa-pencil-alt'></i></a>
+							<form action="{{url('admin/sks')}}/{{$item->id}}" method = "post">
 							@method('DELETE')
 							@csrf
 							<button type = "submit">
 							<i class='fas fa-trash'></i>
 							</button>
 							</form>
-							<a href="{{ route('admin.skd.show',$item->id)}}" target= "_blank" class='btn btn-success btn-sm'><i class='fas fa-eye'></i></a>
+							<a href="{{ route('admin.sks.show',$item->id)}}" target= "_blank" class='btn btn-success btn-sm'><i class='fas fa-eye'></i></a>
 
 							</td>
 						</tr>

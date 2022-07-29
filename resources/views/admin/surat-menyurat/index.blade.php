@@ -30,7 +30,7 @@
                         </a>
                     </div>
                     <div class="w-full md:w-1/2 xl:w-1/3 p-6">
-                        <a href="{{ route('admin.data-kelahiran.index')}}">
+                        <a href="{{ route('admin.sks.index')}}">
                         <!--Metric Card-->
                         <div class="bg-gradient-to-b from-pink-200 to-pink-100 border-b-4 border-pink-500 rounded-lg shadow-xl p-5">
                             <div class="flex flex-row items-center">

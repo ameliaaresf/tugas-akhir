@@ -36,7 +36,7 @@
           @endif
           <!-- <p class="text-red-500 text-xs italic">Please fill out this field.</p> -->
         </div>
-        <div class="flex flex-wrap -mx-3 mb-6">
+        
         <div class="w-full px-3 mb-6 md:mb-0 my-4">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
             NIK
@@ -212,10 +212,11 @@
 </div>
         
         <div class="flex w-full h-full justify-center content-center items-center">
-        <button class="rounded bg-blue-500 hover:bg-blue-700 py-2 px-4 text-white" type="submit"> SIMPAN</button>
+        <button class="rounded bg-blue-500 hover:bg-blue-700 py-2 px-4 text-white" type="submit"> UBAH</button>
         </div>
       </div>
-      
+      </div>
+      </div>
     </form>
     
 <div>

@@ -15,6 +15,18 @@ class CreateSksTable extends Migration
     {
         Schema::create('sks', function (Blueprint $table) {
             $table->id();
+            $table->string('no_regis');
+            $table->string('nama');
+            $table->string('nik');
+            $table->string('tempat_lahir');
+            $table->date('tgl_lahir');
+            $table->string('jk');
+            $table->string('pekerjaan');
+            $table->string('alamat');
+            $table->string('status');
+            $table->date('tgl_buat');
+            $table->string('ttd');
+            $table->string('keterangan');
             $table->timestamps();
         });
     }

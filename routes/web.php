@@ -37,7 +37,6 @@ Route::group([
             Route::resource('data-pekerja-migran', DataPekerjaController::class);
             Route::resource('data-vaksin', DataVaksinController::class);
             Route::resource('data-bansos', DataBansosController::class);
-            Route::resource('laporan-data', LaporanDataController::class);
             Route::resource('surat-menyurat', SuratMenyuratController::class);
             Route::resource('sku', SKUController::class);
             Route::resource('skd', SKDController::class);

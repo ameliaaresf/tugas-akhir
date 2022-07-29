@@ -73,11 +73,6 @@
                             <i class="fas fa-calendar-check pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-gray-400 md:text-gray-200 block md:inline-block">Surat Menyurat</span>
                             </a>
                         </li>
-                        <li class="mr-3 flex-1 hover:bg-blue-600 px-1 rounded-lg">
-                            <a href="{{ route ('admin.sku.index')}}" class="block py-1 md:py-3 pl-0 md:pl-1 align-middle text-white no-underline ">
-                            <i class="fas fa-print pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-gray-400 md:text-gray-200 block md:inline-block">Surat Keterangan</span>
-                            </a>
-                        </li>
                 </div>
 
 
