@@ -212,6 +212,19 @@
           @endif
           <!-- <p class="text-red-500 text-xs italic">Please fill out this field.</p> -->
         </div>
+      <div class="w-full px-3 mb-6 md:mb-0 my-4">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+            Nama Pasangan
+          </label>
+          <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500
+          {{ $errors ->has('nama_pasangan') ? 'is-invalid' : ''}}" id="nama_pasangan" name = "nama_pasangan" type="text" placeholder="Masukkan Nama Pasangan" value="{{old('nama_pasangan' , $dataperceraian->nama_pasangan)}}">
+          @if($errors->has('nama_pasangan'))
+          <div class="text-red-600 italic "> 
+          {{$errors->first('nama_pasangan')}}
+          </div>
+          @endif
+          <!-- <p class="text-red-500 text-xs italic">Please fill out this field.</p> -->
+        </div>
       </div>
       <div class="flex w-full h-full justify-center content-center items-center">
         <button class="rounded bg-blue-500 hover:bg-blue-700 py-2 px-4 text-white" type="submit">UBAH</button>

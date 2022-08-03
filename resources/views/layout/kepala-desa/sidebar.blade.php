@@ -24,58 +24,53 @@
                             </a>
                         </li>
                         <li class="mr-3 flex-1 hover:bg-blue-600 px-1 rounded-lg">
-                            <a href="{{ route ('admin.data-kelahiran.index')}}" class="block py-1 md:py-3 pl-0 md:pl-1 align-middle text-white no-underline ">
+                            <a href="{{ route ('kelahiran')}}" class="block py-1 md:py-3 pl-0 md:pl-1 align-middle text-white no-underline ">
                                 <i class="fas fa-user-plus pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-gray-400 md:text-gray-200 block md:inline-block">Data Kelahiran</span>
                             </a>
                         </li>
                         <li class="mr-3 flex-1 hover:bg-blue-600 px-1 rounded-lg">
-                            <a href="{{ route ('admin.data-kematian.index')}}" class="block py-1 md:py-3 pl-0 md:pl-1 align-middle text-white no-underline ">
+                            <a href="{{ route ('kematian')}}" class="block py-1 md:py-3 pl-0 md:pl-1 align-middle text-white no-underline ">
                                 <i class="fas fa-user-minus pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-gray-400 md:text-gray-200 block md:inline-block">Data Kematian</span>
                             </a>
                         </li>
                         <li class="mr-3 flex-1 hover:bg-blue-600 px-1 rounded-lg">
-                            <a href="{{ route ('admin.data-perkawinan.index')}}" class="block py-1 md:py-3 pl-0 md:pl-1 align-middle text-white no-underline ">
+                            <a href="{{ route ('perkawinan')}}" class="block py-1 md:py-3 pl-0 md:pl-1 align-middle text-white no-underline ">
                                 <i class="fas fa-server pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-gray-400 md:text-gray-200 block md:inline-block">Data Perkawinan</span>
                             </a>
                         </li>
                         <li class="mr-3 flex-1 hover:bg-blue-600 px-1 rounded-lg">
-                            <a href="{{ route ('admin.data-perceraian.index')}}" class="block py-1 md:py-3 pl-0 md:pl-1 align-middle text-white no-underline ">
+                            <a href="{{ route ('perceraian')}}" class="block py-1 md:py-3 pl-0 md:pl-1 align-middle text-white no-underline ">
                                 <i class="fas fa-tasks pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-gray-400 md:text-gray-200 block md:inline-block">Data Perceraian</span>
                             </a>
                         </li>
                         <li class="mr-3 flex-1 hover:bg-blue-600 px-1 rounded-lg">
-                            <a href="{{ route ('admin.data-pendatang.index')}}" class="block py-1 md:py-3 pl-0 md:pl-1 align-middle text-white no-underline ">
+                            <a href="{{ route ('pendatang')}}" class="block py-1 md:py-3 pl-0 md:pl-1 align-middle text-white no-underline ">
                                 <i class="fas fa-indent pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-gray-400 md:text-gray-200 block md:inline-block">Data Pendatang</span>
                             </a>
                         </li>
                         <li class="mr-3 flex-1 hover:bg-blue-600 px-1 rounded-lg">
-                            <a href="{{ route ('admin.data-perpindahan.index')}}" class="block py-1 md:py-3 pl-0 md:pl-1 align-middle text-white no-underline ">
+                            <a href="{{ route ('perpindahan')}}" class="block py-1 md:py-3 pl-0 md:pl-1 align-middle text-white no-underline ">
                                 <i class="fas fa-outdent pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-gray-400 md:text-gray-200 block md:inline-block">Data Perpindahan</span>
                             </a>
                         </li>
                         <li class="mr-3 flex-1 hover:bg-blue-600 px-1 rounded-lg">
-                            <a href="{{ route ('admin.data-pekerja-migran.index')}}" class="block py-1 md:py-3 pl-0 md:pl-1 align-middle text-white no-underline ">
+                            <a href="{{ route ('pekerja')}}" class="block py-1 md:py-3 pl-0 md:pl-1 align-middle text-white no-underline ">
                                 <i class="fas fa-briefcase pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-gray-400 md:text-gray-200 block md:inline-block">Data Pekerja </span>
                             </a>
                         </li>
                         <li class="mr-3 flex-1 hover:bg-blue-600 px-1 rounded-lg">
-                            <a href="{{ route ('admin.data-vaksin.index')}}" class="block py-1 md:py-3 pl-0 md:pl-1 align-middle text-white no-underline ">
+                            <a href="{{ route ('vaksin')}}" class="block py-1 md:py-3 pl-0 md:pl-1 align-middle text-white no-underline ">
                                 <i class="fas fa-syringe pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-gray-400 md:text-gray-200 block md:inline-block">Data Vaksin</span>
                             </a>
                         </li>
                         <li class="mr-3 flex-1 hover:bg-blue-600 px-1 rounded-lg">
-                            <a href="{{ route ('admin.data-bansos.index')}}" class="block py-1 md:py-3 pl-0 md:pl-1 align-middle text-white no-underline ">
+                            <a href="{{ route ('bansos')}}" class="block py-1 md:py-3 pl-0 md:pl-1 align-middle text-white no-underline ">
                                 <i class="fas fa-coins pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-gray-400 md:text-gray-200 block md:inline-block">Data BANSOS</span>
                             </a>
                         </li>
                         <li class="mr-3 flex-1 hover:bg-blue-600 px-1 rounded-lg">
-                            <a href="{{ route ('admin.laporan-data.index')}}" class="block py-1 md:py-3 pl-0 md:pl-1 align-middle text-white no-underline ">
+                            <a href="{{ route ('bansos')}}" class="block py-1 md:py-3 pl-0 md:pl-1 align-middle text-white no-underline ">
                             <i class="fas fa-calendar-check pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-gray-400 md:text-gray-200 block md:inline-block">Laporan Data</span>
-                            </a>
-                        </li>
-                        <li class="mr-3 flex-1 hover:bg-blue-600 px-1 rounded-lg">
-                            <a href="/laporandata" class="block py-1 md:py-3 pl-0 md:pl-1 align-middle text-white no-underline ">
-                            <i class="fas fa-print pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-gray-400 md:text-gray-200 block md:inline-block">Surat Menyurat</span>
                             </a>
                         </li>
                     </ul>

@@ -23,7 +23,6 @@
           @endif
           <!-- <p class="text-red-500 text-xs italic">Please fill out this field.</p> -->
         </div>
-        </div>
         <div class="w-full px-3 mb-6 md:mb-0 my-4">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
             NIK
@@ -136,10 +135,8 @@
           </div>
           @endif
   </div>
-</div>
-          <!-- <p class="text-red-500 text-xs italic">Please fill out this field.</p> -->
-        </div>
-        <div class="w-full px-3 mb-6 md:mb-0 my-4">
+</div>  
+<div class="w-full px-3 mb-6 md:mb-0 my-4">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
             RT
           </label>
@@ -192,10 +189,6 @@
           @endif
   </div>
 </div>
-          <!-- <p class="text-red-500 text-xs italic">Please fill out this field.</p> -->
-        </div>
-        
-      </div>
       <div>
       <div class="flex w-full h-full justify-center content-center items-center">
         <button class="rounded bg-blue-500 hover:bg-blue-700 py-2 px-4 text-white" type="submit"> SIMPAN</button>

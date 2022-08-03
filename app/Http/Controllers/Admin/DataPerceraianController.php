@@ -49,7 +49,8 @@ class DataPerceraianController extends Controller
             // 'status' => 'required',
             'pekerjaan' => 'required',
             'kw' => 'required',
-            'nama_wali' => 'required'
+            'nama_wali' => 'required',
+            'nama_pasangan' => 'required'
         ];
 
         $messages = [
@@ -63,7 +64,8 @@ class DataPerceraianController extends Controller
             // 'status.required' => 'Status harus diisi!',
             'pekerjaan.required' => 'Pekerjaan harus diisi!',
             'kw.required' => 'Kewarganegaraan harus diisi!',
-            'nama_wali.required' => 'Nama wali harus diisi!'
+            'nama_wali.required' => 'Nama wali harus diisi!',
+            'nama_pasangan.required' => 'Nama pasangan harus diisi!'
         ];
 
         $this->validate($request, $rules, $messages);
@@ -82,6 +84,7 @@ class DataPerceraianController extends Controller
         $perceraian->pekerjaan = $request->pekerjaan;
         $perceraian->kw = $request->kw;
         $perceraian->nama_wali = $request->nama_wali;
+        $perceraian->nama_pasangan = $request->nama_pasangan;
         // dd($perceraian);
         $perceraian->save();
 
@@ -133,7 +136,8 @@ class DataPerceraianController extends Controller
             // 'status' => 'required',
             'pekerjaan' => 'required',
             'kw' => 'required',
-            'nama_wali' => 'required'
+            'nama_wali' => 'required',
+            'nama_pasangan' => 'required'
         ];
 
         $messages = [
@@ -147,7 +151,8 @@ class DataPerceraianController extends Controller
             // 'status.required' => 'Status harus diisi!',
             'pekerjaan.required' => 'Pekerjaan harus diisi!',
             'kw.required' => 'Kewarganegaraan harus diisi!',
-            'nama_wali.required' => 'Nama wali harus diisi!'
+            'nama_wali.required' => 'Nama wali harus diisi!',
+            'nama_pasangan.required' => 'Nama pasangan harus diisi!'
         ];
 
         $this->validate($request, $rules, $messages);
@@ -166,6 +171,7 @@ class DataPerceraianController extends Controller
         $perceraian->pekerjaan = $request->pekerjaan;
         $perceraian->kw = $request->kw;
         $perceraian->nama_wali = $request->nama_wali;
+        $perceraian->nama_pasangan = $request->nama_pasangan;
         // dd($perceraian);
         $perceraian->save();
 

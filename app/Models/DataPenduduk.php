@@ -11,4 +11,9 @@ class DataPenduduk extends Model
 
     protected $table = 'data_penduduks';
     protected $primarykey = 'id';
+    
+    public function kematian(){
+        $this->hasOne(DataKematian::class,'id');
+    }
 }
+

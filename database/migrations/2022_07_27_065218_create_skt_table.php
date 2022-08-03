@@ -15,6 +15,19 @@ class CreateSktTable extends Migration
     {
         Schema::create('skt', function (Blueprint $table) {
             $table->id();
+            $table->string('no_regis');
+            $table->string('nama_lembaga');
+            $table->string('alamat');
+            $table->string('desa');
+            $table->string('kec');
+            $table->string('kab');
+            $table->string('utara');
+            $table->string('timur');
+            $table->string('selatan');
+            $table->string('barat');
+            $table->date('tgl_buat');
+            $table->string('ttd');
+            $table->string('keterangan');
             $table->timestamps();
         });
     }

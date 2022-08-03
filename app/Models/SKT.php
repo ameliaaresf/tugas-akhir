@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class SKT extends Model
 {
     use HasFactory;
+
+    protected $table = 'skt';
+    protected $primarykey = 'id';
 }

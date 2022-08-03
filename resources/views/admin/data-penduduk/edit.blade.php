@@ -13,9 +13,23 @@
       <div class="flex flex-wrap -mx-3 mb-6">
         <div class="w-full px-3 mb-6 md:mb-0 my-4">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
-            NIK
+            No KK
           </label>
           <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500
+          {{ $errors ->has('no_kk') ? 'is-invalid' : ''}}" id="no_kk" name = "no_kk" type="text" placeholder="Masukkan No KK" require value="{{old('no_kk' , $datapenduduk->no_kk)}}">
+          @if($errors->has('no_kk'))
+          <div class="text-red-600 italic "> 
+          {{$errors->first('no_kk')}}
+          </div>
+          @endif
+          <!-- <p class="text-red-500 text-xs italic">Please fill out this field.</p> -->
+        </div>
+        </div>
+        <div class="w-full px-3 mb-6 md:mb-0 my-4">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+            NIK
+          </label>
+          <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 
           {{ $errors ->has('nik') ? 'is-invalid' : ''}}" id="nik" name = "nik" type="text" placeholder="Masukkan NIK" value="{{old('nik' , $datapenduduk->nik)}}">
           @if($errors->has('nik'))
           <div class="text-red-600 italic "> 
@@ -29,23 +43,10 @@
             Nama Lengkap
           </label>
           <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500
-          {{ $errors ->has('nama') ? 'is-invalid' : ''}}" id="nama" name = "nama" type="text" placeholder="Masukkan Nama" value="{{old('nama' , $datapenduduk->nama)}}">
+          {{ $errors ->has('nama') ? 'is-invalid' : ''}}" id="nama" name = "nama" type="text" placeholder="Masukkan Nama" require value="{{old('nama' , $datapenduduk->nama)}}">
           @if($errors->has('nama'))
           <div class="text-red-600 italic "> 
           {{$errors->first('nama')}}
-          </div>
-          @endif
-          <!-- <p class="text-red-500 text-xs italic">Please fill out this field.</p> -->
-        </div>
-        <div class="w-full px-3 mb-6 md:mb-0 my-4">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-            Tempat Lahir
-          </label>
-          <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500
-          {{ $errors ->has('tempat_lahir') ? 'is-invalid' : ''}}" id="tempat_lahir" name = "tempat_lahir" type="text" placeholder="Masukkan Tempat Lahir" value="{{old('tempat_lahir' , $datapenduduk->tempat_lahir)}}">
-          @if($errors->has('tempat_lahir'))
-          <div class="text-red-600 italic "> 
-          {{$errors->first('tempat_lahir')}}
           </div>
           @endif
           <!-- <p class="text-red-500 text-xs italic">Please fill out this field.</p> -->
@@ -58,51 +59,13 @@
                 </div>
                 <input id="tgl_lahir" datepicker="" value="{{old('tgl_lahir' , $datapenduduk->tgl_lahir)}}" datepicker-format="yyyy/mm/dd" type="text" name="tgl_lahir"  class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 {{ $errors ->has('tgl_lahir') ? 'is-invalid' : ''}} " placeholder="Pilih Tanggal">
                 @if($errors->has('tgl_lahir'))
-          <div class="text-red-600 italic "> 
-          {{$errors->first('tgl_lahir')}}
+          <div class="text-red-600 italic {{$errors->first('tgl_lahir')}}"> 
           </div>
           @endif
             </div>
         <div class="w-full px-3 mb-6 md:mb-0 my-4">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-            Jenis Kelamin
-          </label>
-  <div class="flex items-center mr-4 mb-4">
-    <input id="laki-laki" type="radio" name="jk" class="hidden {{ $errors ->has('jk') ? 'is-invalid' : ''}}" value = "Laki-laki" {{ ($datapenduduk->jk=="Laki-laki")? "checked" : "" }} />
-    <label for="laki-laki" class="flex items-center cursor-pointer">
-     <span class="w-4 h-4 inline-block mr-1 rounded-full border border-grey"></span>
-     Laki-laki</label>
-   </div>
-
-   <div class="flex items-center mr-4 mb-4">
-    <input id="perempuan" type="radio" name="jk" class="hidden{{ $errors ->has('jk') ? 'is-invalid' : ''}}" value = "Perempuan" {{ ($datapenduduk->jk=="Perempuan")? "checked" : "" }} />
-    <label for="perempuan" class="flex items-center cursor-pointer">
-     <span class="w-4 h-4 inline-block mr-1 rounded-full border border-grey"></span>
-     Perempuan</label>
-     @if($errors->has('jk'))
-          <div class="text-red-600 italic "> 
-          {{$errors->first('jk')}}
-          </div>
-          @endif
-   </div>
-</div>
-
-        <div class="w-full px-3 mb-6 md:mb-0 my-4">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-            Alamat
-          </label>
-          <textarea class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500
-          {{ $errors ->has('alamat') ? 'is-invalid' : ''}}" id="alamat" name = "alamat" type="text" placeholder="Masukkan Alamat" require>{{old('alamat', $datapenduduk->alamat)}}</textarea>
-          @if($errors->has('alamat'))
-          <div class="text-red-600 italic "> 
-          {{$errors->first('alamat')}}
-          </div>
-          @endif
-          <!-- <p class="text-red-500 text-xs italic">Please fill out this field.</p> -->
-        </div>
-        <div class="w-full px-3 mb-6 md:mb-0 my-4">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-            Agama
+            Blok
           </label>
           <div class="flex ">
   <div class="mb-3 xl:w-96 relative">
@@ -120,18 +83,17 @@
       transition
       ease-in-out
       m-0
-      focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none{{ $errors ->has('agama') ? 'is-invalid' : ''}}" id = "agama" name = "agama" aria-label="Default select example" require>
-        <option selected>Pilih Agama</option>
-        <option value="Islam">Islam</option>
-        <option value="Katolik">Katolik</option>
-        <option value="Protestan">Protestan</option>
-        <option value="Hindu">Hindu</option>
-        <option value="Budha">Budha</option>
-        <option value="Konghuchu">Konghuchu</option>
+      focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none{{ $errors ->has('blok') ? 'is-invalid' : ''}}" id = "blok" name = "blok" aria-label="Default select example" require>
+        <option selected>BLOK</option>
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+        <option value="D">D</option>
+        <option value="E">E</option>
     </select>
-    @if($errors->has('agama'))
+    @if($errors->has('blok'))
           <div class="text-red-600 italic "> 
-          {{$errors->first('agama')}}
+          {{$errors->first('blok')}}
           </div>
           @endif
   </div>
@@ -140,68 +102,104 @@
         </div>
         <div class="w-full px-3 mb-6 md:mb-0 my-4">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-            Status Perkawinan
+            RW
           </label>
-          <div class="flex items-center mr-4 mb-4">
-    <input id="kawin" type="radio" name="status" class="hidden {{ $errors ->has('status') ? 'is-invalid' : ''}}" value = "Kawin" {{ ($datapenduduk->status=="Kawin")? "checked" : "" }} />
-    <label for="kawin" class="flex items-center cursor-pointer">
-     <span class="w-4 h-4 inline-block mr-1 rounded-full border border-grey"></span>
-     Kawin</label>
-   </div>
-
-   <div class="flex items-center mr-4 mb-4">
-    <input id="belumkawin" type="radio" name="status" class="hidden {{ $errors ->has('status') ? 'is-invalid' : ''}}" value = "Belum Kawin" {{ ($datapenduduk->status=="Belum Kawin")? "checked" : "" }}/>
-    <label for="belumkawin" class="flex items-center cursor-pointer">
-     <span class="w-4 h-4 inline-block mr-1 rounded-full border border-grey"></span>
-     Belum Kawin</label>
-     @if($errors->has('status'))
-          <div class="text-red-600 italic ">
-          {{$errors->first('status')}}
+          <div class="flex ">
+  <div class="mb-3 xl:w-96 relative">
+    <select class="form-select appearance-none 
+      block
+      w-full
+      px-3
+      py-1.5
+      text-base
+      font-normal
+      text-gray-700
+      bg-white bg-clip-padding bg-no-repeat
+      border border-solid border-gray-300
+      rounded
+      transition
+      ease-in-out
+      m-0
+      focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none{{ $errors ->has('rw') ? 'is-invalid' : ''}}" id = "rw" name = "rw" aria-label="Default select example" require>
+        <option selected>RW</option>
+        <option value="001">001</option>
+        <option value="002">002</option>
+        <option value="003">003</option>
+        <option value="004">004</option>
+        <option value="005">005</option>
+        <option value="006">006</option>
+        <option value="007">007</option>
+        <option value="008">008</option>
+    </select>
+    @if($errors->has('rw'))
+          <div class="text-red-600 italic "> 
+          {{$errors->first('rw')}}
           </div>
           @endif
-   </div>
+  </div>
+</div>
           <!-- <p class="text-red-500 text-xs italic">Please fill out this field.</p> -->
         </div>
         <div class="w-full px-3 mb-6 md:mb-0 my-4">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-            Pekerjaan
+            RT
           </label>
-          <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500
-          {{ $errors ->has('pekerjaan') ? 'is-invalid' : ''}}" id="pekerjaan" name = "pekerjaan" type="text" placeholder="Masukkan Pekerjaan" value="{{old('pekerjaan' , $datapenduduk->pekerjaan)}}">
-          @if($errors->has('pekerjaan'))
+          <div class="flex ">
+  <div class="mb-3 xl:w-96 relative">
+    <select class="form-select appearance-none 
+      block
+      w-full
+      px-3
+      py-1.5
+      text-base
+      font-normal
+      text-gray-700
+      bg-white bg-clip-padding bg-no-repeat
+      border border-solid border-gray-300
+      rounded
+      transition
+      ease-in-out
+      m-0
+      focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none{{ $errors ->has('rt') ? 'is-invalid' : ''}}" id = "rt" name = "rt" aria-label="Default select example" require>
+        <option selected>RT</option>
+        <option value="001">001</option>
+        <option value="002">002</option>
+        <option value="003">003</option>
+        <option value="004">004</option>
+        <option value="005">005</option>
+        <option value="006">006</option>
+        <option value="007">007</option>
+        <option value="008">008</option>
+        <option value="009">009</option>
+        <option value="010">010</option>
+        <option value="011">011</option>
+        <option value="012">012</option>
+        <option value="013">013</option>
+        <option value="014">014</option>
+        <option value="015">015</option>
+        <option value="016">016</option>
+        <option value="017">017</option>
+        <option value="018">018</option>
+        <option value="019">019</option>
+        <option value="020">020</option>
+        <option value="021">021</option>
+        <option value="022">022</option>
+        <option value="023">023</option>
+    </select>
+    @if($errors->has('rt'))
           <div class="text-red-600 italic "> 
-          {{$errors->first('pekerjaan')}}
+          {{$errors->first('rt')}}
           </div>
           @endif
+  </div>
+</div>
           <!-- <p class="text-red-500 text-xs italic">Please fill out this field.</p> -->
         </div>
-        <div class="w-full px-3 mb-6 md:mb-0 my-4">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-            Kewarganegaraan
-          </label>
-          <div class="flex items-center mr-4 mb-4">
-    <input id="wni" type="radio" name="kw" class="hidden {{ $errors ->has('kw') ? 'is-invalid' : ''}}" value = "WNI" {{ ($datapenduduk->kw=="WNI")? "checked" : "" }} />
-    <label for="wni" class="flex items-center cursor-pointer">
-     <span class="w-4 h-4 inline-block mr-1 rounded-full border border-grey"></span>
-     WNI</label>
-   </div>
-
-   <div class="flex items-center mr-4 mb-4">
-    <input id="wna" type="radio" name="kw" class="hidden {{ $errors ->has('kw') ? 'is-invalid' : ''}}" value = "WNA" {{ ($datapenduduk->kw=="WNA")? "checked" : "" }} />
-    <label for="wna" class="flex items-center cursor-pointer">
-     <span class="w-4 h-4 inline-block mr-1 rounded-full border border-grey"></span>
-     WNA</label>
-     @if($errors->has('kw'))
-          <div class="text-red-600 italic "> 
-          {{$errors->first('kw')}}
-          </div>
-          @endif
-   </div>
-          <!-- <p class="text-red-500 text-xs italic">Please fill out this field.</p> -->
-        </div>
+        
       </div>
+      <div>
       <div class="flex w-full h-full justify-center content-center items-center">
-        <button class="rounded bg-blue-500 hover:bg-blue-700 py-2 px-4 text-white" type="submit">UBAH</button>
+        <button class="rounded bg-blue-500 hover:bg-blue-700 py-2 px-4 text-white" type="submit"> UBAH</button>
         </div>
     </form>
 <div>

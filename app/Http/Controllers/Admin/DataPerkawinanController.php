@@ -48,7 +48,8 @@ class DataPerkawinanController extends Controller
             // 'status' => 'required',
             'pekerjaan' => 'required',
             'kw' => 'required',
-            'nama_wali' => 'required'
+            'nama_wali' => 'required',
+            'nama_calon' => 'required'
         ];
 
         $messages = [
@@ -62,7 +63,8 @@ class DataPerkawinanController extends Controller
             // 'status.required' => 'Status harus diisi!',
             'pekerjaan.required' => 'Pekerjaan harus diisi!',
             'kw.required' => 'Kewarganegaraan harus diisi!',
-            'nama_wali.required' => 'Nama wali harus diisi!'
+            'nama_wali.required' => 'Nama wali harus diisi!',
+            'nama_calon.required' => 'Nama calon harus diisi!'
         ];
 
         $this->validate($request, $rules, $messages);
@@ -81,6 +83,7 @@ class DataPerkawinanController extends Controller
         $perkawinan->pekerjaan = $request->pekerjaan;
         $perkawinan->kw = $request->kw;
         $perkawinan->nama_wali = $request->nama_wali;
+        $perkawinan->nama_calon = $request->nama_calon;
         // dd($perkawinan);
         $perkawinan->save();
 
@@ -130,7 +133,8 @@ class DataPerkawinanController extends Controller
             // 'status' => 'required',
             'pekerjaan' => 'required',
             'kw' => 'required',
-            'nama_wali' => 'required'
+            'nama_wali' => 'required',
+            'nama_calon' => 'required'
         ];
 
         $messages = [
@@ -144,7 +148,8 @@ class DataPerkawinanController extends Controller
             // 'status.required' => 'Status harus diisi!',
             'pekerjaan.required' => 'Pekerjaan harus diisi!',
             'kw.required' => 'Kewarganegaraan harus diisi!',
-            'nama_wali.required' => 'Nama wali harus diisi!'
+            'nama_wali.required' => 'Nama wali harus diisi!',
+            'nama_calon.required' => 'Nama calon harus diisi!'
         ];
 
         $this->validate($request, $rules, $messages);
@@ -163,6 +168,7 @@ class DataPerkawinanController extends Controller
         $perkawinan->pekerjaan = $request->pekerjaan;
         $perkawinan->kw = $request->kw;
         $perkawinan->nama_wali = $request->nama_wali;
+        $perkawinan->nama_calon = $request->nama_calon;
         // dd($perkawinan);
         $perkawinan->save();
 

@@ -26,6 +26,7 @@ class CreateDataPerceraiansTable extends Migration
             $table->string('pekerjaan');
             $table->string('kw');
             $table->string('nama_wali');
+            $table->string('nama_pasangan');
             $table->timestamps();
         });
     }

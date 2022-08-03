@@ -73,6 +73,8 @@
 								>Kewarganegaraan</th>
                             <th class="border-collapse border border-slate-400 bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs"
 								>Nama Wali</th>
+							<th class="border-collapse border border-slate-400 bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs"
+								>Nama Pasangan</th>
 							<th class="border-collapse border border-slate-400 bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs text-center"
 								>Aksi</th>
 						
@@ -114,6 +116,9 @@
 							</td>
                             <td class="border border-slate-300 border-t border-gray-200 userId text-center">
 							{{$data->nama_wali}}
+							</td>
+							<td class="border border-slate-300 border-t border-gray-200 userId text-center">
+							{{$data->nama_pasangan}}
 							</td>
 							<td class="border border-slate-300 border-t border-gray-200 userId text-center">
 							<a href="{{url('admin/data-perceraian')}}/{{$data->id}}/{{'edit'}}" class='btn btn-success btn-sm'><i class='fas fa-pencil-alt'></i></a>

@@ -11,4 +11,8 @@ class DataKelahiran extends Model
 
     protected $table = 'data_kelahirans';
     protected $primarykey = 'id';
+
+    public function kelahiran(){
+        $this->belongsTo(DataKelahiran::class,'id_penduduk');
+    }
 }

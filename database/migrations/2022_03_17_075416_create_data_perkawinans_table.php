@@ -26,6 +26,7 @@ class CreateDataPerkawinansTable extends Migration
             $table->string('pekerjaan');
             $table->string('kw');
             $table->string('nama_wali');
+            $table->string('nama_calon');
             $table->timestamps();
         });
     }

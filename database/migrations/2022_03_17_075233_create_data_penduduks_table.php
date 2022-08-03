@@ -15,6 +15,7 @@ class CreateDataPenduduksTable extends Migration
     {
         Schema::create('data_penduduks', function (Blueprint $table) {
             $table->id();
+            $table->integer('id_penduduk');
             $table->string('no_kk');
             $table->string('nik');
             $table->string('nama');
