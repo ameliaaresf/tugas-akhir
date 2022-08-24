@@ -17,33 +17,33 @@ use App\Http\Controllers\KepalaDesa\BerandaController;
 
 
 
-Route::get('test', function (){
-    return view ('admin.dashboard.test');
+Route::get('test', function () {
+    return view('admin.dashboard.test');
 });
 Route::group([
     'prefix' => 'admin',
-    'namespace' => 'Admin',
+    // 'namespace' => 'Admin',
     'as' => 'admin.'
 ], function () {
     Route::group(['middleware' => ['role:admin', 'auth']], function () {
-            Route::get('/', [DashboardController::class, 'index'])->name('index');
-            Route::resource('logout', LoginController::class);
-            Route::resource('data-penduduk', DataPendudukController::class);
-            Route::resource('data-kelahiran', DataKelahiranController::class);
-            Route::resource('data-kematian', DataKematianController::class);
-            Route::resource('data-perkawinan', DataPerkawinanController::class);
-            Route::resource('data-perceraian', DataPerceraianController::class);
-            Route::resource('data-pendatang', DataPendatangController::class);
-            Route::resource('data-perpindahan', DataPerpindahanController::class);
-            Route::resource('data-pekerja-migran', DataPekerjaController::class);
-            Route::resource('data-vaksin', DataVaksinController::class);
-            Route::resource('data-bansos', DataBansosController::class);
-            Route::resource('surat-menyurat', SuratMenyuratController::class);
-            Route::resource('sku', SKUController::class);
-            Route::resource('skd', SKDController::class);
-            Route::resource('sks', SKSController::class);
-            Route::resource('skt', SKTController::class);
-
+        Route::get('/', 'Admin\DashboardController@index')->name('index');
+        Route::resource('logout', 'Auth\LoginController');
+        Route::resource('data-penduduk', 'Admin\DataPendudukController');
+        Route::resource('data-kelahiran', 'Admin\DataKelahiranController');
+        Route::resource('data-kematian', 'Admin\DataKematianController');
+        Route::resource('data-perkawinan', 'Admin\DataPerkawinanController');
+        Route::resource('data-perceraian', 'Admin\DataPerceraianController');
+        Route::resource('data-pendatang', 'Admin\DataPendatangController');
+        Route::resource('data-perpindahan', 'Admin\DataPerpindahanController');
+        Route::resource('data-pekerja-migran', 'Admin\DataPekerjaController');
+        Route::resource('data-vaksin', 'Admin\DataVaksinController');
+        Route::resource('data-bansos', 'Admin\DataBansosController');
+        Route::resource('surat-menyurat', 'Admin\SuratMenyuratController');
+        Route::post('penduduk', 'Admin\DataPendudukController@import_excel')->name('penduduk.import_excel');
+        Route::resource('sku', 'Admin\SKUController');
+        Route::resource('skd', 'Admin\SKDController');
+        Route::resource('sks', 'Admin\SKSController');
+        Route::resource('skt', 'Admin\SKTController');
     });
 });
 
@@ -68,12 +68,10 @@ Route::get('skdomisili', 'KepalaDesa\BerandaController@skdomisili')->name('skdom
 Route::get('skstatus', 'KepalaDesa\BerandaController@skstatus')->name('skstatus');
 Route::get('sktanah', 'KepalaDesa\BerandaController@sktanah')->name('sktanah');
 Route::get('skusaha', 'KepalaDesa\BerandaController@skusaha')->name('skusaha');
+
 // Route::get('admin/sku/cetak/{$id}',[SKUController::class,'cetak'])->name('admin.sku.cetak');
 
 
-Route::get('test', function (){
-    return view ('admin.dashboard.test');
+Route::get('test', function () {
+    return view('admin.dashboard.test');
 })->name('test');
-
-
-

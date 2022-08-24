@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Imports\PendudukImport;
 use Illuminate\Http\Request;
 use App\Models\DataPenduduk;
+
+use Maatwebsite\Excel\Facades\Excel;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class DataPendudukController extends Controller
@@ -18,7 +21,7 @@ class DataPendudukController extends Controller
     {
         $datapenduduk = DataPenduduk::all();
 
-        return view ('admin.data-penduduk.index')->with('datapenduduk', $datapenduduk);
+        return view('admin.data-penduduk.index')->with('datapenduduk', $datapenduduk);
     }
 
     /**
@@ -28,7 +31,7 @@ class DataPendudukController extends Controller
      */
     public function create()
     {
-        return view ('admin.data-penduduk.create');
+        return view('admin.data-penduduk.create');
     }
 
     /**
@@ -101,7 +104,7 @@ class DataPendudukController extends Controller
     {
         $datapenduduk = DataPenduduk::findOrFail($id);
 
-        return view ('admin.data-penduduk.edit')->with('datapenduduk', $datapenduduk);
+        return view('admin.data-penduduk.edit')->with('datapenduduk', $datapenduduk);
     }
 
     /**
@@ -162,6 +165,18 @@ class DataPendudukController extends Controller
     public function destroy($id)
     {
         DataPenduduk::find($id)->delete();
-        return back()->with('status','Data dihapus!');
+        return back()->with('status', 'Data dihapus!');
+    }
+
+    public function import_excel(Request $request)
+    {
+        $this->validate($request, [
+            'file' => 'required|mimes:csv,xls,xlsx'
+        ]);
+        $file = $request->file('file');
+        $nama_file = rand() . $file->getClientOriginalName();
+        $file->move('file_penduduk', $nama_file);
+        Excel::import(new PendudukImport, public_path('/file_penduduk/' . $nama_file));
+        return redirect()->back()->with('success', 'Data Penduduk Berhasil Diimport!');
     }
 }
