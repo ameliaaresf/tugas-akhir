@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\DataBansos;
+use App\Models\DataPenduduk;
+
 
 class DataBansosController extends Controller
 {
@@ -16,8 +18,8 @@ class DataBansosController extends Controller
     public function index()
     {
         $databansos = DataBansos::all();
-
-        return view ('admin.data-bansos.index')->with('databansos', $databansos);
+        $datapenduduk = DataPenduduk::all();
+        return view ('admin.data-bansos.index')->with('databansos', $databansos, 'datapenduduk', $datapenduduk);
     }
     
 
@@ -28,7 +30,8 @@ class DataBansosController extends Controller
      */
     public function create()
     {
-        return view ('admin.data-bansos.create');
+        $datapenduduk = DataPenduduk::all();
+        return view ('admin.data-bansos.create')->with('datapenduduk', $datapenduduk);
     }
 
     /**
@@ -41,7 +44,7 @@ class DataBansosController extends Controller
     {
         $rules = [
             'nik' => 'required|digits:16',
-            'nama' => 'required',
+            'id_penduduk' => 'required',
             'alamat' => 'required',
             'jenis_bansos' => 'required',
         ];
@@ -49,7 +52,7 @@ class DataBansosController extends Controller
         $messages = [
             'nik.required' => 'NIK harus diisi!',
             'nik.digits' => 'NIK harus 16 digit!',
-            'nama.required' => 'Nama harus diisi!',
+            'id_penduduk.required' => 'ID harus diisi!',
             'alamat.required' => 'Alamat harus diisi!',
             'jenis_bansos.required' => 'Agama harus dipilih!',
         ];
@@ -60,7 +63,7 @@ class DataBansosController extends Controller
 
         $bansos = new DataBansos;
         $bansos->nik = $request->nik;
-        $bansos->nama = $request->nama;
+        $bansos->id_penduduk = $request->id_penduduk;
         $bansos->alamat = $request->alamat;
         $bansos->jenis_bansos = $request->jenis_bansos;
         // dd($bansos);
@@ -89,8 +92,8 @@ class DataBansosController extends Controller
     public function edit($id)
     {
         $databansos = DataBansos::findOrFail($id);
-
-        return view ('admin.data-bansos.edit')->with('databansos', $databansos);
+        $datapenduduk = DataPenduduk::all();
+        return view ('admin.data-bansos.edit', compact('databansos', 'datapenduduk'));
     }
 
     /**
@@ -104,7 +107,7 @@ class DataBansosController extends Controller
     {
         $rules = [
             'nik' => 'required|digits:16',
-            'nama' => 'required',
+            'id_penduduk' => 'required',
             'alamat' => 'required',
             'jenis_bansos' => 'required',
         ];
@@ -112,7 +115,7 @@ class DataBansosController extends Controller
         $messages = [
             'nik.required' => 'NIK harus diisi!',
             'nik.digits' => 'NIK harus 16 digit!',
-            'nama.required' => 'Nama harus diisi!',
+            'id_penduduk.required' => 'ID harus diisi!',
             'alamat.required' => 'Alamat harus diisi!',
             'jenis_bansos.required' => 'Agama harus dipilih!',
         ];
@@ -123,13 +126,13 @@ class DataBansosController extends Controller
 
         $bansos = DataBansos::find($id);
         $bansos->nik = $request->nik;
-        $bansos->nama = $request->nama;
+        $bansos->id_penduduk = $request->id_penduduk;
         $bansos->alamat = $request->alamat;
         $bansos->jenis_bansos = $request->jenis_bansos;
         // dd($bansos);
         $bansos->save();
 
-        return redirect('admin/data-bansos')->with('status', 'Data Berhasil diinput!');
+        return redirect('admin/data-bansos')->with('status', 'Data Berhasil diubah!');
     }
 
     /**

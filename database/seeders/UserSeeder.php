@@ -23,11 +23,11 @@ class UserSeeder extends Seeder
         $admin->assignRole('Admin');
 
         $kepaladesa = User::create([
-            'name' => 'Kepala Desa',
+            'name' => 'kepaladesa',
             'email' => 'kepaladesa@gmail.com',
             'password' => bcrypt('12345678')
         ]);
 
-        $kepaladesa->assignRole('Kepala Desa');
+        $kepaladesa->assignRole('kepaladesa');
     }
 }

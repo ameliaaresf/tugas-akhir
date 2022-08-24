@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\DataVaksin;
+use App\Models\DataPenduduk;
 
 class DataVaksinController extends Controller
 {
@@ -16,8 +17,8 @@ class DataVaksinController extends Controller
     public function index()
     {
         $datavaksin = DataVaksin::all();
-
-        return view ('admin.data-vaksin.index')->with('datavaksin', $datavaksin);
+        $datapenduduk = DataPenduduk::all();
+        return view ('admin.data-vaksin.index')->with('datavaksin', $datavaksin, 'datapenduduk', $datapenduduk);
     }
 
     /**
@@ -27,7 +28,8 @@ class DataVaksinController extends Controller
      */
     public function create()
     {
-        return view ('admin.data-vaksin.create');
+        $datapenduduk = DataPenduduk::all();
+        return view ('admin.data-vaksin.create')->with('datapenduduk', $datapenduduk);
     }
 
     /**
@@ -40,7 +42,7 @@ class DataVaksinController extends Controller
     {
         $rules = [
             'nik' => 'required|digits:16',
-            'nama' => 'required',
+            'id_penduduk' => 'required',
             'tgl_lahir' => 'required',
             'alamat' => 'required',
             'keterangan' => 'required',
@@ -49,7 +51,7 @@ class DataVaksinController extends Controller
         $messages = [
             'nik.required' => 'NIK harus diisi!',
             'nik.digits' => 'NIK harus 16 digit!',
-            'nama.required' => 'Nama harus diisi!',
+            'id_penduduk.required' => 'Nama harus diisi!',
             'tgl_lahir.required' => 'Tanggal Lahir harus diisi!',
             'alamat.required' => 'Alamat harus diisi!',
             'keterangan.required' => 'Agama harus dipilih!',
@@ -61,7 +63,7 @@ class DataVaksinController extends Controller
 
         $vaksin = new DataVaksin;
         $vaksin->nik = $request->nik;
-        $vaksin->nama = $request->nama;
+        $vaksin->id_penduduk = $request->id_penduduk;
         $vaksin->tgl_lahir = $request->tgl_lahir;
         $vaksin->alamat = $request->alamat;
         $vaksin->keterangan = $request->keterangan;
@@ -91,8 +93,8 @@ class DataVaksinController extends Controller
     public function edit($id)
     {
         $datavaksin = DataVaksin::findOrFail($id);
-
-        return view ('admin.data-vaksin.edit')->with('datavaksin', $datavaksin);
+        $datapenduduk = DataPenduduk::all();
+        return view ('admin.data-vaksin.edit', compact('datavaksin', 'datapenduduk'));
     }
 
     /**
@@ -106,7 +108,7 @@ class DataVaksinController extends Controller
     {
         $rules = [
             'nik' => 'required|digits:16',
-            'nama' => 'required',
+            'id_penduduk' => 'required',
             'tgl_lahir' => 'required',
             'alamat' => 'required',
             'keterangan' => 'required',
@@ -115,7 +117,7 @@ class DataVaksinController extends Controller
         $messages = [
             'nik.required' => 'NIK harus diisi!',
             'nik.digits' => 'NIK harus 16 digit!',
-            'nama.required' => 'Nama harus diisi!',
+            'id_penduduk.required' => 'Nama harus diisi!',
             'tgl_lahir.required' => 'Tanggal Lahir harus diisi!',
             'alamat.required' => 'Alamat harus diisi!',
             'keterangan.required' => 'Agama harus dipilih!',
@@ -127,7 +129,7 @@ class DataVaksinController extends Controller
 
         $vaksin = DataVaksin::find($id);
         $vaksin->nik = $request->nik;
-        $vaksin->nama = $request->nama;
+        $vaksin->id_penduduk = $request->id_penduduk;
         $vaksin->tgl_lahir = $request->tgl_lahir;
         $vaksin->alamat = $request->alamat;
         $vaksin->keterangan = $request->keterangan;

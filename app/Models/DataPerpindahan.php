@@ -11,4 +11,9 @@ class DataPerpindahan extends Model
 
     protected $table = 'data_perpindahans';
     protected $primarykey = 'id';
+    protected $guarded = ['id'];
+
+    public function penduduk(){
+        return $this->belongsTo(DataPenduduk::class, 'id_penduduk');
+    }
 }

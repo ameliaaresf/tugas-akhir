@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\DataPerkawinan;
+use App\Models\DataPenduduk;
 
 class DataPerkawinanController extends Controller
 {
@@ -16,8 +17,8 @@ class DataPerkawinanController extends Controller
     public function index()
     {
         $dataperkawinan = DataPerkawinan::all();
-
-        return view ('admin.data-perkawinan.index')->with('dataperkawinan', $dataperkawinan);
+        $datapenduduk = DataPenduduk::all();
+        return view ('admin.data-perkawinan.index')->with('dataperkawinan', $dataperkawinan, 'datapenduduk', $datapenduduk);
     }
 
     /**
@@ -27,7 +28,8 @@ class DataPerkawinanController extends Controller
      */
     public function create()
     {
-        return view ('admin.data-perkawinan.create');
+        $datapenduduk = DataPenduduk::all();
+        return view ('admin.data-perkawinan.create')->with('datapenduduk', $datapenduduk);
     }
 
     /**
@@ -40,7 +42,7 @@ class DataPerkawinanController extends Controller
     {
         $rules = [
             'nik' => 'required|digits:16',
-            'nama' => 'required',
+            'id_penduduk' => 'required',
             'tempat_lahir' => 'required',
             'tgl_lahir' => 'required',
             'jk' => 'required',
@@ -55,7 +57,7 @@ class DataPerkawinanController extends Controller
         $messages = [
             'nik.required' => 'NIK harus diisi!',
             'nik.digits' => 'NIK harus 16 digit!',
-            'nama.required' => 'Nama harus diisi!',
+            'id_penduduk.required' => 'Nama harus diisi!',
             'tempat_lahir.required' => 'Tempat lahir harus diisi!',
             'tgl_lahir.required' => 'Tanggal lahir harus diisi!',
             'jk.required' => 'Jenis kelamin harus diisi!',
@@ -73,7 +75,7 @@ class DataPerkawinanController extends Controller
 
         $perkawinan = new DataPerkawinan;
         $perkawinan->nik = $request->nik;
-        $perkawinan->nama = $request->nama;
+        $perkawinan->id_penduduk = $request->id_penduduk;
         $perkawinan->tempat_lahir = $request->tempat_lahir;
         $perkawinan->tgl_lahir = $date;
         $perkawinan->jk = $request->jk;
@@ -110,8 +112,8 @@ class DataPerkawinanController extends Controller
     public function edit($id)
     {
         $dataperkawinan = DataPerkawinan::findOrFail($id);
-
-        return view ('admin.data-perkawinan.edit')->with('dataperkawinan', $dataperkawinan);
+        $datapenduduk = DataPenduduk::all();
+        return view ('admin.data-perkawinan.edit', compact('dataperkawinan', 'datapenduduk'));
     }
 
     /**
@@ -125,7 +127,7 @@ class DataPerkawinanController extends Controller
     {
         $rules = [
             'nik' => 'required|digits:16',
-            'nama' => 'required',
+            'id_penduduk' => 'required',
             'tempat_lahir' => 'required',
             'tgl_lahir' => 'required',
             'jk' => 'required',
@@ -140,7 +142,7 @@ class DataPerkawinanController extends Controller
         $messages = [
             'nik.required' => 'NIK harus diisi!',
             'nik.digits' => 'NIK harus 16 digit!',
-            'nama.required' => 'Nama harus diisi!',
+            'id_penduduk.required' => 'Nama harus diisi!',
             'tempat_lahir.required' => 'Tempat lahir harus diisi!',
             'tgl_lahir.required' => 'Tanggal lahir harus diisi!',
             'jk.required' => 'Jenis kelamin harus diisi!',
@@ -158,7 +160,7 @@ class DataPerkawinanController extends Controller
 
         $perkawinan = DataPerkawinan::find($id);
         $perkawinan->nik = $request->nik;
-        $perkawinan->nama = $request->nama;
+        $perkawinan->id_penduduk = $request->id_penduduk;
         $perkawinan->tempat_lahir = $request->tempat_lahir;
         $perkawinan->tgl_lahir = $date;
         $perkawinan->jk = $request->jk;

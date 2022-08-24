@@ -11,4 +11,5 @@ class SKU extends Model
 
     protected $table = 'sku';
     protected $primarykey = 'id';
+    protected $guarded = ['id'];
 }

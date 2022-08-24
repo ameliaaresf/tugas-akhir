@@ -11,4 +11,5 @@ class SKT extends Model
 
     protected $table = 'skt';
     protected $primarykey = 'id';
+    protected $guarded = ['id'];
 }

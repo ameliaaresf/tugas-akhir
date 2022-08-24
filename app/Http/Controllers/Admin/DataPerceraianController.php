@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\DataPerceraian;
+use App\Models\DataPenduduk;
 
 
 class DataPerceraianController extends Controller
@@ -17,8 +18,8 @@ class DataPerceraianController extends Controller
     public function index()
     {
         $dataperceraian = DataPerceraian::all();
-
-        return view ('admin.data-perceraian.index')->with('dataperceraian', $dataperceraian);
+        $datapenduduk = DataPenduduk::all();
+        return view ('admin.data-perceraian.index')->with('dataperceraian', $dataperceraian, 'datapenduduk', $datapenduduk);
     }
 
     /**
@@ -28,7 +29,8 @@ class DataPerceraianController extends Controller
      */
     public function create()
     {
-        return view ('admin.data-perceraian.create');
+        $datapenduduk = DataPenduduk::all();
+        return view ('admin.data-perceraian.create')->with('datapenduduk', $datapenduduk);
     }
 
     /**
@@ -41,7 +43,7 @@ class DataPerceraianController extends Controller
     {
         $rules = [
             'nik' => 'required|digits:16',
-            'nama' => 'required',
+            'id_penduduk' => 'required',
             'tempat_lahir' => 'required',
             'tgl_lahir' => 'required',
             'jk' => 'required',
@@ -56,7 +58,7 @@ class DataPerceraianController extends Controller
         $messages = [
             'nik.required' => 'NIK harus diisi!',
             'nik.digits' => 'NIK harus 16 digit!',
-            'nama.required' => 'Nama harus diisi!',
+            'id_penduduk.required' => 'Nama harus diisi!',
             'tempat_lahir.required' => 'Tempat lahir harus diisi!',
             'tgl_lahir.required' => 'Tanggal lahir harus diisi!',
             'jk.required' => 'Jenis kelamin harus diisi!',
@@ -74,7 +76,7 @@ class DataPerceraianController extends Controller
 
         $perceraian = new DataPerceraian;
         $perceraian->nik = $request->nik;
-        $perceraian->nama = $request->nama;
+        $perceraian->id_penduduk = $request->id_penduduk;
         $perceraian->tempat_lahir = $request->tempat_lahir;
         $perceraian->tgl_lahir = $date;
         $perceraian->jk = $request->jk;
@@ -113,8 +115,8 @@ class DataPerceraianController extends Controller
     public function edit($id)
     {
         $dataperceraian = DataPerceraian::findOrFail($id);
-
-        return view ('admin.data-perceraian.edit')->with('dataperceraian', $dataperceraian);
+        $datapenduduk = DataPenduduk::all();
+        return view ('admin.data-perceraian.edit', compact('dataperceraian', 'datapenduduk'));
     }
 
     /**
@@ -128,7 +130,7 @@ class DataPerceraianController extends Controller
     {
         $rules = [
             'nik' => 'required|digits:16',
-            'nama' => 'required',
+            'id_penduduk' => 'required',
             'tempat_lahir' => 'required',
             'tgl_lahir' => 'required',
             'jk' => 'required',
@@ -143,7 +145,7 @@ class DataPerceraianController extends Controller
         $messages = [
             'nik.required' => 'NIK harus diisi!',
             'nik.digits' => 'NIK harus 16 digit!',
-            'nama.required' => 'Nama harus diisi!',
+            'id_penduduk.required' => 'Nama harus diisi!',
             'tempat_lahir.required' => 'Tempat lahir harus diisi!',
             'tgl_lahir.required' => 'Tanggal lahir harus diisi!',
             'jk.required' => 'Jenis kelamin harus diisi!',
@@ -161,7 +163,7 @@ class DataPerceraianController extends Controller
 
         $perceraian = DataPerceraian::find($id);
         $perceraian->nik = $request->nik;
-        $perceraian->nama = $request->nama;
+        $perceraian->id_penduduk = $request->id_penduduk;
         $perceraian->tempat_lahir = $request->tempat_lahir;
         $perceraian->tgl_lahir = $date;
         $perceraian->jk = $request->jk;

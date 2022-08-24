@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\DataKematian;
+use App\Models\DataPenduduk;
 
 class DataKematianController extends Controller
 {
@@ -16,8 +17,8 @@ class DataKematianController extends Controller
     public function index()
     {
         $datakematian = DataKematian::all();
-        
-        return view ('admin.data-kematian.index')->with('datakematian', $datakematian);
+        $datapenduduk = DataPenduduk::all();
+        return view ('admin.data-kematian.index')->with('datakematian', $datakematian, 'datapenduduk', $datapenduduk);
     }
 
     /**
@@ -27,7 +28,9 @@ class DataKematianController extends Controller
      */
     public function create()
     {
-        return view ('admin.data-kematian.create');
+        $datapenduduk = DataPenduduk::all();
+        
+        return view ('admin.data-kematian.create')->with('datapenduduk', $datapenduduk);
     }
 
     /**
@@ -40,7 +43,8 @@ class DataKematianController extends Controller
     {
         $rules = [
             'nik' => 'required|digits:16',
-            'nama' => 'required',
+            'id_penduduk' => 'required',
+            // 'nama' => 'required',
             'tempat_lahir' => 'required',
             'tgl_lahir' => 'required',
             'tempat_wafat' => 'required',
@@ -57,7 +61,8 @@ class DataKematianController extends Controller
         $messages = [
             'nik.required' => 'NIK harus diisi!',
             'nik.digits' => 'NIK harus 16 digit!',
-            'nama.required' => 'Nama harus diisi!',
+            'id_penduduk.required' => 'Id harus diisi',
+            // 'nama.required' => 'Nama harus diisi!',
             'tempat_lahir.required' => 'Tempat lahir harus diisi!',
             'tgl_lahir.required' => 'Tanggal lahir harus diisi!',
             'tempat_wafat.required' => 'Tempat wafat harus diisi!',
@@ -67,7 +72,6 @@ class DataKematianController extends Controller
             'alamat.required' => 'Alamat harus diisi!',
             'agama.required' => 'Agama harus dipilih!',
             'pekerjaan.required' => 'Pekerjaan harus diisi!',
-            // 'usia.required' => 'Usia harus dipilih!',
             'kw.required' => 'Kewarganegaraan harus dipilih!',
         ];
 
@@ -78,7 +82,8 @@ class DataKematianController extends Controller
 
         $kematian = new DataKematian;
         $kematian->nik = $request->nik;
-        $kematian->nama = $request->nama;
+        $kematian->id_penduduk = $request->id_penduduk;
+        // $kematian->nama = $request->nama;
         $kematian->tempat_lahir = $request->tempat_lahir;
         $kematian->tgl_lahir = $date1;
         $kematian->tempat_wafat = $request->tempat_wafat;
@@ -115,8 +120,9 @@ class DataKematianController extends Controller
     public function edit($id)
     {
         $datakematian = DataKematian::findOrFail($id);
-
-        return view ('admin.data-kematian.edit')->with('datakematian', $datakematian);
+        $datapenduduk = DataPenduduk::all();
+        // dd($datapenduduk);
+        return view ('admin.data-kematian.edit', compact('datakematian', 'datapenduduk'));
     }
 
     /**
@@ -130,7 +136,8 @@ class DataKematianController extends Controller
     {
         $rules = [
             'nik' => 'required|digits:16',
-            'nama' => 'required',
+            'id_penduduk' => 'required',
+            // 'nama' => 'required',
             'tempat_lahir' => 'required',
             'tgl_lahir' => 'required',
             'tempat_wafat' => 'required',
@@ -147,7 +154,8 @@ class DataKematianController extends Controller
         $messages = [
             'nik.required' => 'NIK harus diisi!',
             'nik.digits' => 'NIK harus 16 digit!',
-            'nama.required' => 'Nama harus diisi!',
+            'id_penduduk.required' => 'ID harus diisi!',
+            // 'nama.required' => 'Nama harus diisi!',
             'tempat_lahir.required' => 'Tempat lahir harus diisi!',
             'tgl_lahir.required' => 'Tanggal lahir harus diisi!',
             'tempat_wafat.required' => 'Tempat wafat harus diisi!',
@@ -167,7 +175,9 @@ class DataKematianController extends Controller
         $date2 =  date('y-m-d', strtotime($request->tgl_wafat));
 
         $kematian = DataKematian::find($id);
-        $kematian->nama = $request->nama;
+        $kematian->nik = $request->nik;
+        $kematian->id_penduduk = $request->id_penduduk;
+        // $kematian->nama = $request->nama;
         $kematian->tempat_lahir = $request->tempat_lahir;
         $kematian->tgl_lahir = $date1;
         $kematian->tempat_wafat = $request->tempat_wafat;
@@ -181,6 +191,7 @@ class DataKematianController extends Controller
         $kematian->kw = $request->kw;
         $kematian->save();
 
+        // dd($kematian);
         return redirect('admin/data-kematian')->with('status', 'Data Berhasil diubah!');
     }
 

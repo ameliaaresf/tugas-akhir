@@ -11,4 +11,9 @@ class DataPerceraian extends Model
 
     protected $table = 'data_perceraians';
     protected $primarykey = 'id';
+    protected $guarded = ['id'];
+
+    public function penduduk(){
+        return $this->belongsTo(DataPenduduk::class, 'id_penduduk');
+    }
 }

@@ -11,4 +11,9 @@ class DataVaksin extends Model
 
     protected $table = 'data_vaksins';
     protected $primarykey = 'id';
+    protected $guarded = ['id'];
+
+    public function penduduk(){
+        return $this->belongsTo(DataPenduduk::class, 'id_penduduk');
+    }
 }

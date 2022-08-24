@@ -22,8 +22,6 @@
           {{$errors->first('no_kk')}}
           </div>
           @endif
-          <!-- <p class="text-red-500 text-xs italic">Please fill out this field.</p> -->
-        </div>
         </div>
         <div class="w-full px-3 mb-6 md:mb-0 my-4">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
@@ -63,7 +61,7 @@
           </div>
           @endif
             </div>
-        <div class="w-full px-3 mb-6 md:mb-0 my-4">
+        <br>
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
             Blok
           </label>
@@ -85,11 +83,11 @@
       m-0
       focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none{{ $errors ->has('blok') ? 'is-invalid' : ''}}" id = "blok" name = "blok" aria-label="Default select example" require>
         <option selected>BLOK</option>
-        <option value="A">A</option>
-        <option value="B">B</option>
-        <option value="C">C</option>
-        <option value="D">D</option>
-        <option value="E">E</option>
+        <option value="A" {{ $datapenduduk->blok == 'A' ? 'selected' :'' }}>A</option>
+        <option value="B" {{ $datapenduduk->blok == 'B' ? 'selected' :'' }}>B</option>
+        <option value="C" {{ $datapenduduk->blok == 'C' ? 'selected' :'' }}>C</option>
+        <option value="D" {{ $datapenduduk->blok == 'D' ? 'selected' :'' }}>D</option>
+        <option value="E" {{ $datapenduduk->blok == 'E' ? 'selected' :'' }}>E</option>
     </select>
     @if($errors->has('blok'))
           <div class="text-red-600 italic "> 
@@ -98,9 +96,6 @@
           @endif
   </div>
 </div>
-          <!-- <p class="text-red-500 text-xs italic">Please fill out this field.</p> -->
-        </div>
-        <div class="w-full px-3 mb-6 md:mb-0 my-4">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
             RW
           </label>
@@ -122,14 +117,14 @@
       m-0
       focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none{{ $errors ->has('rw') ? 'is-invalid' : ''}}" id = "rw" name = "rw" aria-label="Default select example" require>
         <option selected>RW</option>
-        <option value="001">001</option>
-        <option value="002">002</option>
-        <option value="003">003</option>
-        <option value="004">004</option>
-        <option value="005">005</option>
-        <option value="006">006</option>
-        <option value="007">007</option>
-        <option value="008">008</option>
+        <option value="001" {{ $datapenduduk->rw == '001' ? 'selected' :'' }}>001</option>
+        <option value="002" {{ $datapenduduk->rw == '002' ? 'selected' :'' }}>002</option>
+        <option value="003" {{ $datapenduduk->rw == '003' ? 'selected' :'' }}>003</option>
+        <option value="004" {{ $datapenduduk->rw == '004' ? 'selected' :'' }}>004</option>
+        <option value="005" {{ $datapenduduk->rw == '005' ? 'selected' :'' }}>005</option>
+        <option value="006" {{ $datapenduduk->rw == '006' ? 'selected' :'' }}>006</option>
+        <option value="007" {{ $datapenduduk->rw == '007' ? 'selected' :'' }}>007</option>
+        <option value="008" {{ $datapenduduk->rw == '008' ? 'selected' :'' }}>008</option>
     </select>
     @if($errors->has('rw'))
           <div class="text-red-600 italic "> 
@@ -138,9 +133,6 @@
           @endif
   </div>
 </div>
-          <!-- <p class="text-red-500 text-xs italic">Please fill out this field.</p> -->
-        </div>
-        <div class="w-full px-3 mb-6 md:mb-0 my-4">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
             RT
           </label>
@@ -162,29 +154,29 @@
       m-0
       focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none{{ $errors ->has('rt') ? 'is-invalid' : ''}}" id = "rt" name = "rt" aria-label="Default select example" require>
         <option selected>RT</option>
-        <option value="001">001</option>
-        <option value="002">002</option>
-        <option value="003">003</option>
-        <option value="004">004</option>
-        <option value="005">005</option>
-        <option value="006">006</option>
-        <option value="007">007</option>
-        <option value="008">008</option>
-        <option value="009">009</option>
-        <option value="010">010</option>
-        <option value="011">011</option>
-        <option value="012">012</option>
-        <option value="013">013</option>
-        <option value="014">014</option>
-        <option value="015">015</option>
-        <option value="016">016</option>
-        <option value="017">017</option>
-        <option value="018">018</option>
-        <option value="019">019</option>
-        <option value="020">020</option>
-        <option value="021">021</option>
-        <option value="022">022</option>
-        <option value="023">023</option>
+        <option value="001" {{ $datapenduduk->rt == '001' ? 'selected' :'' }}>001</option>
+        <option value="002" {{ $datapenduduk->rt == '002' ? 'selected' :'' }}>002</option>
+        <option value="003" {{ $datapenduduk->rt == '003' ? 'selected' :'' }}>003</option>
+        <option value="004" {{ $datapenduduk->rt == '004' ? 'selected' :'' }}>004</option>
+        <option value="005" {{ $datapenduduk->rt == '005' ? 'selected' :'' }}>005</option>
+        <option value="006" {{ $datapenduduk->rt == '006' ? 'selected' :'' }}>006</option>
+        <option value="007" {{ $datapenduduk->rt == '007' ? 'selected' :'' }}>007</option>
+        <option value="008" {{ $datapenduduk->rt == '008' ? 'selected' :'' }}>008</option>
+        <option value="009" {{ $datapenduduk->rt == '008' ? 'selected' :'' }}>009</option>
+        <option value="010" {{ $datapenduduk->rt == '010' ? 'selected' :'' }}>010</option>
+        <option value="011" {{ $datapenduduk->rt == '011' ? 'selected' :'' }}>011</option>
+        <option value="012" {{ $datapenduduk->rt == '012' ? 'selected' :'' }}>012</option>
+        <option value="013" {{ $datapenduduk->rt == '013' ? 'selected' :'' }}>013</option>
+        <option value="014" {{ $datapenduduk->rt == '014' ? 'selected' :'' }}>014</option>
+        <option value="015" {{ $datapenduduk->rt == '015' ? 'selected' :'' }}>015</option>
+        <option value="016" {{ $datapenduduk->rt == '016' ? 'selected' :'' }}>016</option>
+        <option value="017" {{ $datapenduduk->rt == '017' ? 'selected' :'' }}>017</option>
+        <option value="018" {{ $datapenduduk->rt == '018' ? 'selected' :'' }}>018</option>
+        <option value="019" {{ $datapenduduk->rt == '019' ? 'selected' :'' }}>019</option>
+        <option value="020" {{ $datapenduduk->rt == '020' ? 'selected' :'' }}>020</option>
+        <option value="021" {{ $datapenduduk->rt == '021' ? 'selected' :'' }}>021</option>
+        <option value="022" {{ $datapenduduk->rt == '022' ? 'selected' :'' }}>022</option>
+        <option value="023" {{ $datapenduduk->rt == '023' ? 'selected' :'' }}>023</option>
     </select>
     @if($errors->has('rt'))
           <div class="text-red-600 italic "> 
@@ -193,10 +185,6 @@
           @endif
   </div>
 </div>
-          <!-- <p class="text-red-500 text-xs italic">Please fill out this field.</p> -->
-        </div>
-        
-      </div>
       <div>
       <div class="flex w-full h-full justify-center content-center items-center">
         <button class="rounded bg-blue-500 hover:bg-blue-700 py-2 px-4 text-white" type="submit"> UBAH</button>

@@ -190,14 +190,14 @@
             Keterangan
           </label>
   <div class="flex items-center mr-4 mb-4">
-    <input id="sudah-ditandatangani" type="radio" name="keterangan" class="hidden {{ $errors ->has('keterangan') ? 'is-invalid' : ''}}" value = "sudah-ditandatangani" checked />
+    <input id="sudah-ditandatangani" type="radio" name="keterangan" class="hidden {{ $errors ->has('keterangan') ? 'is-invalid' : ''}}" value = "Sudah Ditandatangani" checked />
     <label for="sudah-ditandatangani" class="flex items-center cursor-pointer">
      <span class="w-4 h-4 inline-block mr-1 rounded-full border border-grey"></span>
      Sudah Ditandatangani</label>
    </div>
 
    <div class="flex items-center mr-4 mb-4">
-    <input id="belum-ditandatangani" type="radio" name="keterangan" class="hidden {{ $errors ->has('keterangan') ? 'is-invalid' : ''}}" value = "belum-ditandatangani" />
+    <input id="belum-ditandatangani" type="radio" name="keterangan" class="hidden {{ $errors ->has('keterangan') ? 'is-invalid' : ''}}" value = "Belum Ditandatangani" />
     <label for="belum-ditandatangani" class="flex items-center cursor-pointer">
      <span class="w-4 h-4 inline-block mr-1 rounded-full border border-grey"></span>
      Belum Ditandatangani</label>

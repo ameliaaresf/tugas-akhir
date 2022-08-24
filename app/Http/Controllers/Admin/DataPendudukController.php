@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\DataPenduduk;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class DataPendudukController extends Controller
 {
@@ -53,6 +54,7 @@ class DataPendudukController extends Controller
             'no_kk.digits' => 'No KK harus 16 digit!',
             'nik.required' => 'NIK harus diisi!',
             'nik.digits' => 'NIK harus 16 digit!',
+            'nik.unique' => 'NIK harus 16 digit!',
             'nama.required' => 'Nama harus diisi!',
             'tgl_lahir.required' => 'Tanggal lahir harus diisi!',
             'blok.required' => 'Blok harus diisi!',
@@ -74,7 +76,7 @@ class DataPendudukController extends Controller
         $penduduk->rt = $request->rt;
         // dd($penduduk);
         $penduduk->save();
-
+        Alert::success('Success Title', 'Success Message');
         return redirect('admin/data-penduduk')->with('status', 'Data Berhasil diinput!');
     }
 

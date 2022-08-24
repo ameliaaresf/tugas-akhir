@@ -11,9 +11,39 @@ class DataPenduduk extends Model
 
     protected $table = 'data_penduduks';
     protected $primarykey = 'id';
-    
+    protected $guarded = ['id'];
+
     public function kematian(){
-        $this->hasOne(DataKematian::class,'id');
+        return $this->hasOne(DataKematian::class);
     }
+
+    public function bansos(){
+        return $this->hasOne(DataBansos::class);
+    }
+
+    public function pekerja(){
+        return $this->hasOne(DataPekerja::class);
+    }
+
+    public function pendatang(){
+        return $this->hasOne(DataPendatang::class);
+    }
+
+    public function perceraian(){
+        return $this->hasOne(DataPerceraian::class);
+    }
+
+    public function perkawinan(){
+        return $this->hasOne(DataPerkawinan::class);
+    }
+
+    public function perpindahan(){
+        return $this->hasOne(DataPerpindahan::class);
+    }
+
+    public function vaksin(){
+        return $this->hasOne(DataVaksin::class);
+    }
+
 }
 

@@ -160,12 +160,12 @@
       m-0
       focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none {{ $errors ->has('agama') ? 'is-invalid' : ''}}" id = "agama" name = "agama" aria-label="Default select example" value="{{old('agama' , $datakelahiran->agama)}}">
         <option selected>Pilih Agama</option>
-        <option value="Islam">Islam</option>
-        <option value="Katolik">Katolik</option>
-        <option value="Protestan">Protestan</option>
-        <option value="Hindu">Hindu</option>
-        <option value="Budha">Budha</option>
-        <option value="Konghuchu">Konghuchu</option>
+        <option value="Islam" {{ $datakelahiran->agama == 'Islam' ? 'selected' :'' }}>Islam</option>
+        <option value="Katolik" {{ $datakelahiran->agama == 'Katolik' ? 'selected' :'' }}>Katolik</option>
+        <option value="Protestan" {{ $datakelahiran->agama == 'Protestan' ? 'selected' :'' }}>Protestan</option>
+        <option value="Hindu" {{ $datakelahiran->agama == 'Hindu' ? 'selected' :'' }}>Hindu</option>
+        <option value="Budha" {{ $datakelahiran->agama == 'Budha' ? 'selected' :'' }}>Budha</option>
+        <option value="Konghuchu" {{ $datakelahiran->agama == 'Konghuchu' ? 'selected' :'' }}>Konghuchu</option>
     </select>
     @if($errors->has('agama'))
           <div class="text-red-600 italic "> 

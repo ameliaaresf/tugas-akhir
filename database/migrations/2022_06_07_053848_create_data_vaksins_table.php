@@ -14,9 +14,10 @@ class CreateDataVaksinsTable extends Migration
     public function up()
     {
         Schema::create('data_vaksins', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->integer('id_penduduk')->unsigned();
+            $table->foreign('id_penduduk')->references('id')->on('data_penduduks');
             $table->string('nik');
-            $table->string('nama');
             $table->date('tgl_lahir');
             $table->string('alamat');
             $table->string('keterangan');

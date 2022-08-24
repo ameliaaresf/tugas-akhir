@@ -176,9 +176,9 @@
       m-0
       focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none {{ $errors ->has('ttd') ? 'is-invalid' : ''}}" id = "ttd" name = "ttd" aria-label="Default select example" value="{{old('ttd' , $sku->ttd)}}">
         <option selected>Masukkan Nama</option>
-        <option value="Kuwu Tugu">Kuwu Tugu</option>
-        <option value="Sekretaris Desa">Sekretaris Desa</option>
-        <option value="Lainnya">Lainnya</option>
+        <option value="Kuwu Tugu" {{ $sku->ttd == 'Kuwu Tugu' ? 'selected' :'' }}>Kuwu Tugu</option>
+        <option value="Sekretaris Desa" {{ $sku->ttd == 'Sekretaris Desa' ? 'selected' :'' }}>Sekretaris Desa</option>
+        <option value="Lainnya" {{ $sku->ttd == 'Lainnya' ? 'selected' :'' }}>Lainnya</option>
     </select>
     @if($errors->has('ttd'))
           <div class="text-red-600 italic "> 

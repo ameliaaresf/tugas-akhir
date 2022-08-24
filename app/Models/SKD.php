@@ -11,4 +11,5 @@ class SKD extends Model
 
     protected $table = 'skd';
     protected $primarykey = 'id';
+    protected $guarded = ['id'];
 }

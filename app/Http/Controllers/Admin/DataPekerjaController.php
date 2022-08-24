@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\DataPekerja;
+use App\Models\DataPenduduk;
 
 class DataPekerjaController extends Controller
 {
@@ -16,8 +17,8 @@ class DataPekerjaController extends Controller
     public function index()
     {
         $datapekerja = DataPekerja::all();
-        
-        return view ('admin.data-pekerja-migran.index')->with('datapekerja', $datapekerja);
+        $datapenduduk = DataPenduduk::all();
+        return view ('admin.data-pekerja-migran.index')->with('datapekerja', $datapekerja, 'datapenduduk', $datapenduduk);
     }
 
     /**
@@ -27,7 +28,8 @@ class DataPekerjaController extends Controller
      */
     public function create()
     {
-        return view ('admin.data-pekerja-migran.create');
+        $datapenduduk = DataPenduduk::all();
+        return view ('admin.data-pekerja-migran.create')->with('datapenduduk', $datapenduduk);
     }
 
     /**
@@ -40,7 +42,7 @@ class DataPekerjaController extends Controller
     {
         $rules = [
             'nik' => 'required|digits:16',
-            'nama' => 'required',
+            'id_penduduk' => 'required',
             'alamat' => 'required',
             'tempat_bekerja' => 'required',
             'tujuan' => 'required',
@@ -50,7 +52,7 @@ class DataPekerjaController extends Controller
         $messages = [
             'nik.required' => 'NIK harus diisi!',
             'nik.digits' => 'NIK harus 16 digit!',
-            'nama.required' => 'Nama harus diisi!',
+            'id_penduduk.required' => 'Nama harus diisi!',
             'alamat.required' => 'Alamat harus diisi!',
             'tempat_bekerja.required' => 'Agama harus dipilih!',
             'tujuan.required' => 'Agama harus dipilih!',
@@ -62,7 +64,7 @@ class DataPekerjaController extends Controller
 
         $pekerja = new DataPekerja;
         $pekerja->nik = $request->nik;
-        $pekerja->nama = $request->nama;
+        $pekerja->id_penduduk = $request->id_penduduk;
         $pekerja->alamat = $request->alamat;
         $pekerja->tempat_bekerja = $request->tempat_bekerja;
         $pekerja->tujuan = $request->tujuan;
@@ -93,8 +95,8 @@ class DataPekerjaController extends Controller
     public function edit($id)
     {
         $datapekerja = DataPekerja::findOrFail($id);
-        
-        return view ('admin.data-pekerja-migran.edit')->with('datapekerja', $datapekerja);
+        $datapenduduk = DataPenduduk::all();
+        return view ('admin.data-pekerja-migran.edit', compact('datapekerja', 'datapenduduk'));
     }
 
     /**
@@ -108,7 +110,7 @@ class DataPekerjaController extends Controller
     {
         $rules = [
             'nik' => 'required|digits:16',
-            'nama' => 'required',
+            'id_penduduk' => 'required',
             'alamat' => 'required',
             'tempat_bekerja' => 'required',
             'tujuan' => 'required',
@@ -118,7 +120,7 @@ class DataPekerjaController extends Controller
         $messages = [
             'nik.required' => 'NIK harus diisi!',
             'nik.digits' => 'NIK harus 16 digit!',
-            'nama.required' => 'Nama harus diisi!',
+            'id_penduduk.required' => 'Nama harus diisi!',
             'alamat.required' => 'Alamat harus diisi!',
             'tempat_bekerja.required' => 'Agama harus dipilih!',
             'tujuan.required' => 'Agama harus dipilih!',
@@ -130,7 +132,7 @@ class DataPekerjaController extends Controller
 
         $pekerja = DataPekerja::find($id);
         $pekerja->nik = $request->nik;
-        $pekerja->nama = $request->nama;
+        $pekerja->id_penduduk = $request->id_penduduk;
         $pekerja->alamat = $request->alamat;
         $pekerja->tempat_bekerja = $request->tempat_bekerja;
         $pekerja->tujuan = $request->tujuan;

@@ -1,5 +1,5 @@
 @include('layout.kepala-desa.header')
-<body class="bg-blue-500  font-sans leading-normal tracking-normal mt-12">
+<body class="bg-blue-900  font-sans leading-normal tracking-normal mt-12">
         @include('layout.kepala-desa.navbar')    
         <main class="">
             <div class="flex flex-col md:flex-row w-full">

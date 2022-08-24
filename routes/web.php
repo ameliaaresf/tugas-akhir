@@ -27,6 +27,7 @@ Route::group([
 ], function () {
     Route::group(['middleware' => ['role:admin', 'auth']], function () {
             Route::get('/', [DashboardController::class, 'index'])->name('index');
+            Route::resource('logout', LoginController::class);
             Route::resource('data-penduduk', DataPendudukController::class);
             Route::resource('data-kelahiran', DataKelahiranController::class);
             Route::resource('data-kematian', DataKematianController::class);
@@ -50,7 +51,8 @@ Route::get('/admin', [\App\Http\Controllers\HomeController::class, 'index'])->na
 
 Auth::routes();
 
-Route::get('index', 'KepalaDesa\BerandaController@index')->name('index');
+// Route yang di pake ketika kepala desa sudah login
+Route::get('index', 'KepalaDesa\BerandaController@index')->name('desa.index');
 Route::get('bansos', 'KepalaDesa\BerandaController@bansos')->name('bansos');
 Route::get('penduduk', 'KepalaDesa\BerandaController@penduduk')->name('penduduk');
 Route::get('kelahiran', 'KepalaDesa\BerandaController@kelahiran')->name('kelahiran');
@@ -61,8 +63,17 @@ Route::get('pendatang', 'KepalaDesa\BerandaController@pendatang')->name('pendata
 Route::get('perpindahan', 'KepalaDesa\BerandaController@perpindahan')->name('perpindahan');
 Route::get('pekerja', 'KepalaDesa\BerandaController@pekerja')->name('pekerja');
 Route::get('vaksin', 'KepalaDesa\BerandaController@vaksin')->name('vaksin');
+Route::get('surat', 'KepalaDesa\BerandaController@surat')->name('surat');
+Route::get('skdomisili', 'KepalaDesa\BerandaController@skdomisili')->name('skdomisili');
+Route::get('skstatus', 'KepalaDesa\BerandaController@skstatus')->name('skstatus');
+Route::get('sktanah', 'KepalaDesa\BerandaController@sktanah')->name('sktanah');
+Route::get('skusaha', 'KepalaDesa\BerandaController@skusaha')->name('skusaha');
 // Route::get('admin/sku/cetak/{$id}',[SKUController::class,'cetak'])->name('admin.sku.cetak');
 
+
+Route::get('test', function (){
+    return view ('admin.dashboard.test');
+})->name('test');
 
 
 

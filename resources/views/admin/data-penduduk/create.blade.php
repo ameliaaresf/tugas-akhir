@@ -1,6 +1,7 @@
 @extends('admin.app')
 @section('title', 'Data Penduduk')
 @section('content')
+@include('message.alert')
 
 <div class = "bg-gray-100 w-full mx-4 rounded-lg">
     <div class = "mx-4 my-4 text-center font-bold text-lg">
@@ -21,7 +22,6 @@
           {{$errors->first('no_kk')}}
           </div>
           @endif
-          <!-- <p class="text-red-500 text-xs italic">Please fill out this field.</p> -->
         </div>
         <div class="w-full px-3 mb-6 md:mb-0 my-4">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
@@ -34,7 +34,6 @@
           {{$errors->first('nik')}}
           </div>
           @endif
-          <!-- <p class="text-red-500 text-xs italic">Please fill out this field.</p> -->
         </div>
         <div class="w-full px-3 mb-6 md:mb-0 my-4">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
@@ -47,7 +46,6 @@
           {{$errors->first('nama')}}
           </div>
           @endif
-          <!-- <p class="text-red-500 text-xs italic">Please fill out this field.</p> -->
         </div>
         <div class="w-full px-3 mb-6 md:mb-0 my-4">
         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="cus_name">Tanggal Lahir</label>
@@ -61,7 +59,7 @@
           </div>
           @endif
             </div>
-        <div class="w-full px-3 mb-6 md:mb-0 my-4">
+            <br>
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
             Blok
           </label>
@@ -95,10 +93,9 @@
           </div>
           @endif
   </div>
-</div>
-          <!-- <p class="text-red-500 text-xs italic">Please fill out this field.</p> -->
+
         </div>
-        <div class="w-full px-3 mb-6 md:mb-0 my-4">
+    
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
             RW
           </label>
@@ -136,7 +133,7 @@
           @endif
   </div>
 </div>  
-<div class="w-full px-3 mb-6 md:mb-0 my-4">
+
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
             RT
           </label>

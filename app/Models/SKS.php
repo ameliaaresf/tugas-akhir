@@ -11,4 +11,5 @@ class SKS extends Model
 
     protected $table = 'sks';
     protected $primarykey = 'id';
+    protected $guarded = ['id'];
 }

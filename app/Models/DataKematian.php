@@ -11,4 +11,9 @@ class DataKematian extends Model
 
     protected $table = 'data_kematians';
     protected $primarykey = 'id';
+    protected $guarded = ['id'];
+
+    public function penduduk(){
+        return $this->belongsTo(DataPenduduk::class, 'id_penduduk');
+    }
 }

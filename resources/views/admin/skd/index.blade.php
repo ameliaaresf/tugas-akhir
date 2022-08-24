@@ -18,7 +18,7 @@
 
 		<div class="mb-4 flex justify-between items-center">
 			<div class="flex-1 pr-4">
-				<div class="relative md:w-full">
+				<!-- <div class="relative md:w-full">
 					<input type="search"
 						class="w-full pl-10 pr-4 py-2 rounded-lg shadow focus:outline-none focus:shadow-outline text-gray-600 font-medium"
 						placeholder="Search...">
@@ -31,7 +31,7 @@
 							<line x1="21" y1="21" x2="15" y2="15" />
 						</svg>
 					</div>
-				</div>
+				</div> -->
 			</div>
 			<div>
 				<div class="">

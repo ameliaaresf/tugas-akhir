@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\DataPerpindahan;
+use App\Models\DataPenduduk;
 
 class DataPerpindahanController extends Controller
 {
@@ -16,8 +17,8 @@ class DataPerpindahanController extends Controller
     public function index()
     {
         $dataperpindahan = DataPerpindahan::all();
-
-        return view ('admin.data-perpindahan.index')->with('dataperpindahan', $dataperpindahan);
+        $datapenduduk = DataPenduduk::all();
+        return view ('admin.data-perpindahan.index')->with('dataperpindahan', $dataperpindahan, 'datapenduduk', $datapenduduk);
     }
 
     /**
@@ -27,7 +28,8 @@ class DataPerpindahanController extends Controller
      */
     public function create()
     {
-        return view ('admin.data-perpindahan.create');
+        $datapenduduk = DataPenduduk::all();
+        return view ('admin.data-perpindahan.create')->with('datapenduduk', $datapenduduk);
     }
 
     /**
@@ -40,7 +42,7 @@ class DataPerpindahanController extends Controller
     {
         $rules = [
             'nik' => 'required|digits:16',
-            'nama' => 'required',
+            'id_penduduk' => 'required',
             'tgl_pindah' => 'required',
             'jk' => 'required',
             'alamat_asal' => 'required',
@@ -53,7 +55,7 @@ class DataPerpindahanController extends Controller
         $messages = [
             'nik.required' => 'NIK harus diisi!',
             'nik.digits' => 'NIK harus 16 digits!',
-            'nama.required' => 'Nama harus diisi!',
+            'id_penduduk.required' => 'Nama harus diisi!',
             'tgl_pindah.required' => 'Tanggal pindah harus diisi!',
             'jk.required' => 'Jenis kelamin harus diisi!',
             'alamat_asal.required' => 'Alamat asal harus diisi!',
@@ -69,7 +71,7 @@ class DataPerpindahanController extends Controller
 
         $perpindahan = new DataPerpindahan;
         $perpindahan->nik = $request->nik;
-        $perpindahan->nama = $request->nama;
+        $perpindahan->id_penduduk = $request->id_penduduk;
         $perpindahan->tgl_pindah = $date;
         $perpindahan->jk = $request->jk;
         $perpindahan->alamat_asal = $request->alamat_asal;
@@ -104,8 +106,8 @@ class DataPerpindahanController extends Controller
     public function edit($id)
     {
         $dataperpindahan = DataPerpindahan::findOrFail($id);
-
-        return view ('admin.data-perpindahan.edit')->with('dataperpindahan', $dataperpindahan);
+        $datapenduduk = DataPenduduk::all();
+        return view ('admin.data-perpindahan.edit', compact('dataperpindahan', 'datapenduduk'));
     }
 
     /**
@@ -119,7 +121,7 @@ class DataPerpindahanController extends Controller
     {
         $rules = [
             'nik' => 'required|digits:16',
-            'nama' => 'required',
+            'id_penduduk' => 'required',
             'tgl_pindah' => 'required',
             'jk' => 'required',
             'alamat_asal' => 'required',
@@ -132,7 +134,7 @@ class DataPerpindahanController extends Controller
         $messages = [
             'nik.required' => 'NIK harus diisi!',
             'nik.digits' => 'NIK harus 16 digits!',
-            'nama.required' => 'Nama harus diisi!',
+            'id_penduduk.required' => 'Nama harus diisi!',
             'tgl_pindah.required' => 'Tanggal pindah harus diisi!',
             'jk.required' => 'Jenis kelamin harus diisi!',
             'alamat_asal.required' => 'Alamat asal harus diisi!',
@@ -148,7 +150,7 @@ class DataPerpindahanController extends Controller
 
         $perpindahan = DataPerpindahan::find($id);
         $perpindahan->nik = $request->nik;
-        $perpindahan->nama = $request->nama;
+        $perpindahan->id_penduduk = $request->id_penduduk;
         $perpindahan->tgl_pindah = $date;
         $perpindahan->jk = $request->jk;
         $perpindahan->alamat_asal = $request->alamat_asal;

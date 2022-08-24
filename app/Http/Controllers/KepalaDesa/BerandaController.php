@@ -14,11 +14,17 @@ use App\Models\DataPerceraian;
 use App\Models\DataPerkawinan;
 use App\Models\DataPerpindahan;
 use App\Models\DataVaksin;
+use App\Models\Surat;
+use App\Models\SKD;
+use App\Models\SKS;
+use App\Models\SKT;
+use App\Models\SKU;
 
 class BerandaController extends Controller
 {
     public function index()
     {
+        // return view ('kepala-desa.dashboard.index');
         return view ('kepala-desa.dashboard.index');
     }
 
@@ -90,5 +96,39 @@ class BerandaController extends Controller
         $datavaksin = DataVaksin::all();
 
         return view ('kepala-desa.data-vaksin.index')->with('datavaksin', $datavaksin);
+    }
+
+    public function skdomisili()
+    {
+        $skd = Skd::all();
+
+        return view ('kepala-desa.skd.index')->with('skd', $skd);
+    }
+
+    public function surat()
+    {
+       
+        return view ('kepala-desa.surat.index');
+    }
+
+    public function skstatus()
+    {
+        $sks = Sks::all();
+
+        return view ('kepala-desa.sks.index')->with('sks', $sks);
+    }
+
+    public function sktanah()
+    {
+        $skt = Skt::all();
+
+        return view ('kepala-desa.skt.index')->with('skt', $skt);
+    }
+
+    public function skusaha()
+    {
+        $sku = Sku::all();
+
+        return view ('kepala-desa.sku.index')->with('sku', $sku);
     }
 }

@@ -1,6 +1,7 @@
 @extends('admin.app')
 @section('title', 'Data Penduduk')
 @section('content')
+@include('message.alert')
     	<section class="w-full">
         <div class="container mx-auto py-6 px-4" x-data="datatables()" x-cloak>
 		<h1 class="text-3xl py-4 border-b mb-10 text-white">Data Penduduk</h1>
@@ -18,20 +19,7 @@
 
 		<div class="mb-4 flex justify-between items-center">
 			<div class="flex-1 pr-4">
-				<div class="relative md:w-full">
-					<input type="search"
-						class="w-full pl-10 pr-4 py-2 rounded-lg shadow focus:outline-none focus:shadow-outline text-gray-600 font-medium"
-						placeholder="Search...">
-					<div class="absolute top-0 left-0 inline-flex items-center p-2">
-						<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-400" viewBox="0 0 24 24"
-							stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
-							stroke-linejoin="round">
-							<rect x="0" y="0" width="24" height="24" stroke="none"></rect>
-							<circle cx="10" cy="10" r="7" />
-							<line x1="21" y1="21" x2="15" y2="15" />
-						</svg>
-					</div>
-				</div>
+				
 			</div>
 			<div>
 				<div class="">
@@ -57,19 +45,19 @@
 						</th>  -->
 						
 							
-							<th class="border border-slate-300 bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs"
+							<th class="border border-slate-300 bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs text-center"
 								>No KK</th>
-							<th class="border border-slate-300 bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs"
+							<th class="border border-slate-300 bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs text-center"
 								>NIK</th>
-                            <th class="border border-slate-300 bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs"
+                            <th class="border border-slate-300 bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs text-center"
 								>Nama</th>
-                            <th class="border border-slate-300 bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs"
+                            <th class="border border-slate-300 bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs text-center"
 								>Tanggal Lahir</th>
-                            <th class="border border-slate-300 bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs"
+                            <th class="border border-slate-300 bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs text-center"
 								>Blok</th>
-                            <th class="border border-slate-300 bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs"
+                            <th class="border border-slate-300 bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs text-center"
 								>Rw</th>
-                            <th class="border border-slate-300 bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs"
+                            <th class="border border-slate-300 bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs text-center"
 								>RT</th>
 							<th class="border-collapse border border-slate-400 bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs text-center"
 								>Aksi</th>
@@ -114,17 +102,12 @@
 						@endforeach
 					
 				</tbody>
+				
 			</table>
 			
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-6">
-		<button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">
-  Button
-</button>
-		</div>
-	</div>
+	
 	
         </section>
     @endsection

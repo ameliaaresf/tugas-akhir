@@ -14,9 +14,10 @@ class CreateDataPendatangsTable extends Migration
     public function up()
     {
         Schema::create('data_pendatangs', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->integer('id_penduduk')->unsigned();
+            $table->foreign('id_penduduk')->references('id')->on('data_penduduks');
             $table->string('nik');
-            $table->string('nama');
             $table->date('tgl_datang');
             $table->string('jk');
             $table->text('alamat_asal');

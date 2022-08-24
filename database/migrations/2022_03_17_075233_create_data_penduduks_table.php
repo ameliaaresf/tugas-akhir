@@ -14,8 +14,7 @@ class CreateDataPenduduksTable extends Migration
     public function up()
     {
         Schema::create('data_penduduks', function (Blueprint $table) {
-            $table->id();
-            $table->integer('id_penduduk');
+            $table->increments('id');
             $table->string('no_kk');
             $table->string('nik');
             $table->string('nama');

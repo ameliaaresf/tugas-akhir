@@ -148,10 +148,10 @@
       m-0
       focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none {{ $errors ->has('status') ? 'is-invalid' : ''}}" id = "status" name = "status" aria-label="Default select example">
         <option selected>Pilih Status</option>
-        <option value="Cerai Hidup / Duda">Cerai Hidup / Duda</option>
-        <option value="Cerai Hidup / Janda">Cerai Hidup / Janda</option>
-        <option value="Cerai Mati / Duda">Cerai Mati / Duda</option>
-        <option value="Cerai Mati / Janda">Cerai Mati / Janda</option>
+        <option value="Cerai Hidup / Duda" {{ $sks->status == 'Cerai Hidup / Duda' ? 'selected' :'' }}>Cerai Hidup / Duda</option>
+        <option value="Cerai Hidup / Janda" {{ $sks->status == 'Cerai Hidup / Janda' ? 'selected' :'' }}>Cerai Hidup / Janda</option>
+        <option value="Cerai Mati / Duda" {{ $sks->status == 'Cerai Mati / Duda' ? 'selected' :'' }}>Cerai Mati / Duda</option>
+        <option value="Cerai Mati / Janda" {{ $sks->status == 'Cerai Mati / Janda' ? 'selected' :'' }}>Cerai Mati / Janda</option>
     </select>
     @if($errors->has('status'))
           <div class="text-red-600 italic "> 
@@ -198,9 +198,9 @@
       m-0
       focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none {{ $errors ->has('ttd') ? 'is-invalid' : ''}}" id = "ttd" name = "ttd" aria-label="Default select example">
         <option selected>Masukkan Nama</option>
-        <option value="Kuwu Tugu">Kuwu Tugu</option>
-        <option value="Sekretaris Desa">Sekretaris Desa</option>
-        <option value="Lainnya">Lainnya</option>
+        <option value="Kuwu Tugu" {{ $sks->ttd == 'Kuwu Tugu' ? 'selected' :'' }}>Kuwu Tugu</option>
+        <option value="Sekretaris Desa" {{ $sks->ttd == 'Sekretaris Desa' ? 'selected' :'' }}>Sekretaris Desa</option>
+        <option value="Lainnya" {{ $sks->ttd == 'Lainnya' ? 'selected' :'' }}>Lainnya</option>
     </select>
     @if($errors->has('ttd'))
           <div class="text-red-600 italic "> 

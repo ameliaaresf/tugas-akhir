@@ -10,19 +10,6 @@
     <form class="w-full mt-10 px-4 rounded-lg" action="{{route('admin.data-kelahiran.store')}}" method = "post">
         @csrf
       <div class="flex flex-wrap -mx-3 mb-6">
-        <!-- <div class="w-full px-3 mb-6 md:mb-0 my-4">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
-            NIK
-          </label>
-          <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 
-          {{ $errors ->has('nik') ? 'is-invalid' : ''}}" id="nik" name = "nik" type="text" placeholder="Masukkan NIK">
-          @if($errors->has('nik'))
-          <div class="text-red-600 italic "> 
-          {{$errors->first('nik')}}
-          </div>
-          @endif
-          
-        </div> -->
         <div class="w-full px-3 mb-6 md:mb-0 my-4">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
             Nama Bayi

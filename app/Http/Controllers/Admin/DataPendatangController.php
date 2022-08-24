@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\DataPendatang;
+use App\Models\DataPenduduk;
 
 class DataPendatangController extends Controller
 {
@@ -16,8 +17,8 @@ class DataPendatangController extends Controller
     public function index()
     {
         $datapendatang = DataPendatang::all();
-
-        return view ('admin.data-pendatang.index')->with('datapendatang', $datapendatang);
+        $datapenduduk = DataPenduduk::all();
+        return view ('admin.data-pendatang.index')->with('datapendatang', $datapendatang, 'datapenduduk', $datapenduduk);
     }
 
     /**
@@ -27,7 +28,8 @@ class DataPendatangController extends Controller
      */
     public function create()
     {
-        return view ('admin.data-pendatang.create');
+        $datapenduduk = DataPenduduk::all();
+        return view ('admin.data-pendatang.create')->with('datapenduduk', $datapenduduk);
     }
 
     /**
@@ -40,7 +42,7 @@ class DataPendatangController extends Controller
     {
         $rules = [
             'nik' => 'required|digits:16',
-            'nama' => 'required',
+            'id_penduduk' => 'required',
             'tgl_datang' => 'required',
             'jk' => 'required',
             'alamat_asal' => 'required',
@@ -53,7 +55,7 @@ class DataPendatangController extends Controller
         $messages = [
             'nik.required' => 'NIK harus diisi!',
             'nik.digits' => 'NIK harus 16 digits!',
-            'nama.required' => 'Nama harus diisi!',
+            'id_penduduk.required' => 'Nama harus diisi!',
             'tgl_datang.required' => 'Tanggal datang harus diisi!',
             'jk.required' => 'Jenis kelamin harus diisi!',
             'alamat_asal.required' => 'Alamat asal harus diisi!',
@@ -69,7 +71,7 @@ class DataPendatangController extends Controller
 
         $pendatang = new DataPendatang;
         $pendatang->nik = $request->nik;
-        $pendatang->nama = $request->nama;
+        $pendatang->id_penduduk = $request->id_penduduk;
         $pendatang->tgl_datang = $date;
         $pendatang->jk = $request->jk;
         $pendatang->alamat_asal = $request->alamat_asal;
@@ -103,8 +105,8 @@ class DataPendatangController extends Controller
     public function edit($id)
     {
         $datapendatang = DataPendatang::findOrFail($id);
-
-        return view ('admin.data-pendatang.edit')->with('datapendatang', $datapendatang);
+        $datapenduduk = DataPenduduk::all();
+        return view ('admin.data-pendatang.edit', compact('datapendatang', 'datapenduduk'));
     }
 
     /**
@@ -118,7 +120,7 @@ class DataPendatangController extends Controller
     {
         $rules = [
             'nik' => 'required|digits:16',
-            'nama' => 'required',
+            'id_penduduk' => 'required',
             'tgl_datang' => 'required',
             'jk' => 'required',
             'alamat_asal' => 'required',
@@ -131,7 +133,7 @@ class DataPendatangController extends Controller
         $messages = [
             'nik.required' => 'NIK harus diisi!',
             'nik.digits' => 'NIK harus 16 digits!',
-            'nama.required' => 'Nama harus diisi!',
+            'id_penduduk.required' => 'Nama harus diisi!',
             'tgl_datang.required' => 'Tanggal datang harus diisi!',
             'jk.required' => 'Jenis kelamin harus diisi!',
             'alamat_asal.required' => 'Alamat asal harus diisi!',
@@ -147,7 +149,7 @@ class DataPendatangController extends Controller
 
         $pendatang = DataPendatang::find($id);
         $pendatang->nik = $request->nik;
-        $pendatang->nama = $request->nama;
+        $pendatang->id_penduduk = $request->id_penduduk;
         $pendatang->tgl_datang = $date;
         $pendatang->jk = $request->jk;
         $pendatang->alamat_asal = $request->alamat_asal;

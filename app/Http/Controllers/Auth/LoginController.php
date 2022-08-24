@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 class LoginController extends Controller
 {
     /*
@@ -43,8 +43,25 @@ class LoginController extends Controller
     {
        if ($user->hasRole('admin')) {
         return redirect()->route('admin');
+        // return "Kien ADMIN";
        }else{
-        return redirect()->route('admin.data-penduduk.index');
+
+        // Nnti maenin dibagian route ini
+        // Ini ketika kepala desa sudah login trus di arahkan ke route desa.index
+        // Untuk route nya ada di web.php line 55
+        return redirect()->route('desa.index');
+        // return "kien USER";
        }
+        // dd($user);
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect()->route('login');
     }
 }

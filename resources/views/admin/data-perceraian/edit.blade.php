@@ -26,16 +26,36 @@
         </div>
         <div class="w-full px-3 mb-6 md:mb-0 my-4">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-            Nama Lengkap
+            Nama
           </label>
-          <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500
-          {{ $errors ->has('nama') ? 'is-invalid' : ''}}" id="nama" name = "nama" type="text" placeholder="Masukkan Nama" value="{{old('nama' , $dataperceraian->nama)}}">
-          @if($errors->has('nama'))
+          <div class="flex ">
+  <div class="mb-3 xl:w-96 relative">
+    <select class="form-select appearance-none 
+      block
+      w-full
+      px-3
+      py-1.5
+      text-base
+      font-normal
+      text-gray-700
+      bg-white bg-clip-padding bg-no-repeat
+      border border-solid border-gray-300
+      rounded
+      transition
+      ease-in-out
+      m-0
+      focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none{{ $errors ->has('id_penduduk') ? 'is-invalid' : ''}}" id = "id_penduduk" name = "id_penduduk" aria-label="Default select example" require>
+        <option hidden>Pilih Nama Penduduk</option>
+        @foreach ($datapenduduk as $data)
+          <option value="{{$data->id}}" {{$data->id === $dataperpindahan->id_penduduk ? 'selected' : ''}}> {{$data->id}}-{{$data->nama}}</option>
+        @endforeach
+    </select>
+    @if($errors->has('id_penduduk'))
           <div class="text-red-600 italic "> 
-          {{$errors->first('nama')}}
+          {{$errors->first('id_penduduk')}}
           </div>
           @endif
-          <!-- <p class="text-red-500 text-xs italic">Please fill out this field.</p> -->
+  </div>
         </div>
         <div class="w-full px-3 mb-6 md:mb-0 my-4">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
@@ -123,12 +143,12 @@
       m-0
       focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none{{ $errors ->has('agama') ? 'is-invalid' : ''}}" id = "agama" name = "agama" aria-label="Default select example">
         <option selected>Pilih Agama</option>
-        <option value="Islam">Islam</option>
-        <option value="Katolik">Katolik</option>
-        <option value="Protestan">Protestan</option>
-        <option value="Hindu">Hindu</option>
-        <option value="Budha">Budha</option>
-        <option value="Konghuchu">Konghuchu</option>
+        <option value="Islam"{{ $dataperceraian->agama == 'Islam' ? 'selected' :'' }}>Islam</option>
+        <option value="Katolik" {{ $dataperceraian->agama == 'Katolik' ? 'selected' :'' }}>Katolik</option>
+        <option value="Protestan" {{ $dataperceraian->agama == 'Protestan' ? 'selected' :'' }}>Protestan</option>
+        <option value="Hindu"{{ $dataperceraian->agama == 'Hindu' ? 'selected' :'' }}>Hindu</option>
+        <option value="Budha"{{ $dataperceraian->agama == 'Budha' ? 'selected' :'' }}>Budha</option>
+        <option value="Konghuchu"{{ $dataperceraian->agama == 'Konghuchu' ? 'selected' :'' }}>Konghuchu</option>
     </select>
     @if($errors->has('agama'))
           <div class="text-red-600 italic "> 

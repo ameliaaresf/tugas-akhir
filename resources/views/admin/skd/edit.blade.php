@@ -171,12 +171,12 @@
       m-0
       focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none {{ $errors ->has('agama') ? 'is-invalid' : ''}}" id = "agama" name = "agama" aria-label="Default select example">
         <option selected>Pilih Agama</option>
-        <option value="Islam">Islam</option>
-        <option value="Katolik">Katolik</option>
-        <option value="Protestan">Protestan</option>
-        <option value="Hindu">Hindu</option>
-        <option value="Budha">Budha</option>
-        <option value="Konghuchu">Konghuchu</option>
+        <option value="Islam" {{ $skd->agama == 'Islam' ? 'selected' :'' }}>Islam</option>
+        <option value="Katolik" {{ $skd->agama == 'Katolik' ? 'selected' :'' }}>Katolik</option>
+        <option value="Protestan" {{ $skd->agama == 'Protestan' ? 'selected' :'' }}>Protestan</option>
+        <option value="Hindu" {{ $skd->agama == 'Hindu' ? 'selected' :'' }}>Hindu</option>
+        <option value="Budha" {{ $skd->agama == 'Budha' ? 'selected' :'' }}>Budha</option>
+        <option value="Konghuchu" {{ $skd->agama == 'Konghuchu' ? 'selected' :'' }}>Konghuchu</option>
     </select>
     @if($errors->has('agama'))
           <div class="text-red-600 italic "> 
@@ -223,9 +223,9 @@
       m-0
       focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none {{ $errors ->has('ttd') ? 'is-invalid' : ''}}" id = "ttd" name = "ttd" aria-label="Default select example">
         <option selected>Masukkan Nama</option>
-        <option value="Kuwu Tugu">Kuwu Tugu</option>
-        <option value="Sekretaris Desa">Sekretaris Desa</option>
-        <option value="Lainnya">Lainnya</option>
+        <option value="Kuwu Tugu" {{ $skd->ttd == 'Kuwu Tugu' ? 'selected' :'' }}>Kuwu Tugu</option>
+        <option value="Sekretaris Desa" {{ $skd->ttd == 'Sektretaris Desa' ? 'selected' :'' }}>Sekretaris Desa</option>
+        <option value="Lainnya" {{ $skd->ttd == 'Lainnya' ? 'selected' :'' }}>Lainnya</option>
     </select>
     @if($errors->has('ttd'))
           <div class="text-red-600 italic "> 

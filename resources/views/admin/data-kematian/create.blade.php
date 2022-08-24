@@ -25,17 +25,38 @@
         </div>
         <div class="w-full px-3 mb-6 md:mb-0 my-4">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-            Nama Lengkap
+            Nama
           </label>
-          <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500
-          {{ $errors ->has('nama') ? 'is-invalid' : ''}}" id="nama" name = "nama" type="text" placeholder="Masukkan Nama" require>
-          @if($errors->has('nama'))
+          <div class="flex ">
+  <div class="mb-3 xl:w-96 relative">
+    <select class="form-select appearance-none 
+      block
+      w-full
+      px-3
+      py-1.5
+      text-base
+      font-normal
+      text-gray-700
+      bg-white bg-clip-padding bg-no-repeat
+      border border-solid border-gray-300
+      rounded
+      transition
+      ease-in-out
+      m-0
+      focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none{{ $errors ->has('id_penduduk') ? 'is-invalid' : ''}}" id = "id_penduduk" name = "id_penduduk" aria-label="Default select example" require>
+        <option hidden>Pilih Nama Penduduk</option>
+        @foreach ($datapenduduk as $data)
+        <option value="{{$data->id}}" data-tokens="{{$data->nama}}"> {{$data->id}}-{{$data->nama}}</option>
+        @endforeach
+    </select>
+    @if($errors->has('id_penduduk'))
           <div class="text-red-600 italic "> 
-          {{$errors->first('nama')}}
+          {{$errors->first('id_penduduk')}}
           </div>
           @endif
-          <!-- <p class="text-red-500 text-xs italic">Please fill out this field.</p> -->
+  </div>
         </div>
+        
         <div class="w-full px-3 mb-6 md:mb-0 my-4">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
             Tempat Lahir
@@ -61,8 +82,8 @@
           {{$errors->first('tgl_lahir')}} 
           </div>
           @endif
-            </div>
-            <div class="w-full px-3 mb-6 md:mb-0 my-4">
+          </div>
+          <br>
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
             Tempat Wafat
           </label>
@@ -73,7 +94,6 @@
           {{$errors->first('tempat_wafat')}}
           </div>
           @endif
-          <!-- <p class="text-red-500 text-xs italic">Please fill out this field.</p> -->
         </div>
         <div class="w-full px-3 mb-6 md:mb-0 my-4">
         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="cus_name">Tanggal wafat</label>
@@ -88,7 +108,6 @@
           </div>
           @endif
             </div>
-            <div class="w-full px-3 mb-6 md:mb-0 my-4">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
             Sebab Wafat
           </label>
@@ -173,10 +192,7 @@
           </div>
           @endif
   </div>
-</div>
-          <!-- <p class="text-red-500 text-xs italic">Please fill out this field.</p> -->
         </div>
-        <div class="w-full px-3 mb-6 md:mb-0 my-4">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
             Pekerjaan
           </label>
@@ -189,19 +205,6 @@
           @endif
           <!-- <p class="text-red-500 text-xs italic">Please fill out this field.</p> -->
         </div>
-        <!-- <div class="w-full px-3 mb-6 md:mb-0 my-4">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-            Usia
-          </label>
-          <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500
-          {{ $errors ->has('usia') ? 'is-invalid' : ''}}" id="usia" name = "usia" type="number" placeholder="Masukkan Usia" require>
-          @if($errors->has('usia'))
-          <div class="text-red-600 italic "> 
-          {{$errors->first('usia')}}
-          </div>
-          @endif
-          
-        </div> -->
         <div class="w-full px-3 mb-6 md:mb-0 my-4">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
             Kewarganegaraan
@@ -223,10 +226,17 @@
           {{$errors->first('kw')}}
           </div>
           @endif
+          </div>
+
+      <div>
       <div class="flex w-full h-full justify-center content-center items-center">
         <button class="rounded bg-blue-500 hover:bg-blue-700 py-2 px-4 text-white" type="submit"> SIMPAN</button>
         </div>
     </form>
+<div>
+
+
+</div>
 
 
 <script src="https://unpkg.com/flowbite@1.3.4/dist/datepicker.js"></script>

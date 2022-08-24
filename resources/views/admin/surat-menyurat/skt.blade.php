@@ -14,20 +14,23 @@
 
 <body>
     <div id=halaman>
-        <font face="Times New Roman" color="black" size="4">
-			<p align="center">  <b> PEMERINTAH KABUPATEN INDRAMAYU</b>
-            <p align="center">  <b> KECAMATAN LELEA</b>
-        </font>
-        <font face="Times New Roman" color="black" size="8">
-            <p align="center"> <b> DESA TUGU</b>
-        </font>
-        <font face="Times New Roman" color="black" size="2">
-        <p align="center"> Alamat : Jl. Raya Tugu No. 87 Desa Tugu Kecamatan Lelea Kabupaten Indramayu 45261
-        </font>
-        <font face="Times New Roman" color="black" size="4">
-			<p align="center"> <u> <b> SURAT KETERANGAN TANAH</b></u>
+    <header>
+        <div class="w-full text-center tracking-wider mb-0 mt-1">
+            <p align="center" class="text-sm uppercase"><b> PEMERINTAH KABUPATEN INDRAMAYU</b></p>
+            <p align="center" class="text-sm uppercase"><b> KECAMATAN LELEA</b></p>
+            <p align="center" class="text-sm uppercase"><b> DESA TUGU</b></p>
+            <p align="center" class="text-xs">
+                Alamat : Jl. Raya Tugu No. 87 Kecamatan Lelea Kabupaten Indramayu 45261
+            </p>
+            <hr class="thin">
+            <hr class="bold mt-1">
+            <font face="Times New Roman" color="black" size="4">
+			<p align="center"> <u> <b> SURAT KETERANGAN DOMISILI</b></u>
             <p align="center"> Nomor : {{ $skt->no_regis }} </p>
 		</font>
+        </div>
+        
+    </header>
 		<br>
 
         <p style="text-align: justify;"> Yang bertandatangan di bawah ini Kuwu Tugu Kecamatan Lelea Kabupaten Indramayu, menerangkan bahwa : </p>
